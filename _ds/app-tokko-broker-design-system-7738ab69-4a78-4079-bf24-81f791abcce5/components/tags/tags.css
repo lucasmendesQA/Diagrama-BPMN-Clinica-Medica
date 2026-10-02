@@ -1,0 +1,194 @@
+/* =============================================================================
+   TOKKO BROKER — Tags
+   Fuente: Figma "↳ Tags" · Tag_Default component
+   3 tamaños · 4 variantes de color · 2 estados · removable + label opcionales
+   Solo variables de /tokens — nunca valores hardcodeados.
+   ============================================================================= */
+
+/* ── BASE ────────────────────────────────────────────────── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--tracking-normal);
+  cursor: default;
+  transition: background-color 0.12s;
+
+  /* Default: variante color default (teal/secondary) */
+  background-color: var(--color-tag-default-bg);
+  color: var(--color-tag-default-text);
+}
+
+.tag:hover,
+.tag--hovered {
+  background-color: var(--color-tag-default-bg-hover);
+}
+
+/* ── TAMAÑOS ─────────────────────────────────────────────── */
+
+/* S — 16px de alto */
+.tag--s {
+  gap: 4px;
+  padding: 0 4px;
+  border-radius: var(--border-radius-xs);       /* 4px */
+  font-size: var(--font-size-caption);          /* 12px */
+  line-height: var(--line-height-caption);      /* 16px */
+}
+
+/* M — 20px de alto */
+.tag--m {
+  gap: 4px;
+  padding: 2px 6px;
+  border-radius: var(--border-radius-xs);       /* 4px */
+  font-size: var(--font-size-caption);          /* 12px */
+  line-height: var(--line-height-caption);      /* 16px */
+}
+
+/* L — 24px de alto */
+.tag--l {
+  gap: 4px;                                     /* gap 4px — igual que S y M */
+  padding: 2px 8px;
+  border-radius: var(--border-radius-xs);       /* 4px */
+  font-size: var(--font-size-body-sm);          /* 14px */
+  line-height: var(--line-height-body-md);      /* 20px */
+}
+
+/* ── VARIANTES DE COLOR ──────────────────────────────────── */
+
+/* Default — teal / secondary */
+.tag--default {
+  background-color: var(--color-tag-default-bg);
+  color: var(--color-tag-default-text);
+}
+.tag--default:hover,
+.tag--default.tag--hovered { background-color: var(--color-tag-default-bg-hover); }
+
+/* Tokko — amarillo */
+.tag--tokko {
+  background-color: var(--color-tag-tokko-bg);
+  color: var(--color-tag-tokko-text);
+}
+.tag--tokko:hover,
+.tag--tokko.tag--hovered { background-color: var(--color-tag-tokko-bg-hover); }
+
+/* Orange */
+.tag--orange {
+  background-color: var(--color-tag-orange-bg);
+  color: var(--color-tag-orange-text);
+}
+.tag--orange:hover,
+.tag--orange.tag--hovered { background-color: var(--color-tag-orange-bg-hover); }
+
+/* Purple */
+.tag--purple {
+  background-color: var(--color-tag-purple-bg);
+  color: var(--color-tag-purple-text);
+}
+.tag--purple:hover,
+.tag--purple.tag--hovered { background-color: var(--color-tag-purple-bg-hover); }
+
+/* ── LABEL (prefijo de categoría) ────────────────────────── */
+.tag__label {
+  font-weight: var(--font-weight-semi);         /* 600 — se destaca del valor */
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+/* ── TEXTO DEL TAG ───────────────────────────────────────── */
+.tag__text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── ÍCONO CERRAR (removable) ────────────────────────────── */
+.tag__remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  font-size: 8px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity 0.12s;
+}
+
+.tag__remove:hover {
+  opacity: 1;
+}
+
+/* ── ÍCONO DELANTERO (solo size L en status tags) ─────────── */
+.tag__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  font-size: 12px;  /* Tamaño del ícono delantero */
+  line-height: 1;
+}
+
+/* ── STATUS TAGS — colores semánticos ────────────────────── */
+
+/* Green */
+.tag--status-green {
+  background-color: var(--color-green-200);    /* #91d4c4 */
+  color: var(--color-green-700);               /* #0e5e4a */
+}
+
+/* Yellow */
+.tag--status-yellow {
+  background-color: var(--color-yellow-200);   /* #faeba9 */
+  color: var(--color-yellow-800);              /* #615210 */
+}
+
+/* Red */
+.tag--status-red {
+  background-color: var(--color-primary-100);  /* #facecf */
+  color: var(--color-primary-800);             /* #7b0c0d */
+}
+
+/* Blue */
+.tag--status-blue {
+  background-color: var(--color-blue-200);     /* #94d0ff */
+  color: var(--color-blue-700);               /* #004f8b */
+}
+
+/* Purple */
+.tag--status-purple {
+  background-color: var(--color-purple-100);   /* #f0e5f8 */
+  color: var(--color-purple-700);              /* #764f96 */
+}
+
+/* Orange */
+.tag--status-orange {
+  background-color: var(--color-orange-100);   /* #feece0 */
+  color: var(--color-orange-700);              /* #a7480b */
+}
+
+/* Neutral */
+.tag--status-neutral {
+  background-color: var(--color-neutral-200);  /* #eaeef1 */
+  color: var(--color-neutral-800);             /* #2e393f */
+}
+
+/* Disabled — sobreescribe el color de la variante */
+.tag--status-disabled {
+  background-color: var(--color-neutral-200);  /* #eaeef1 */
+  color: var(--color-neutral-600);             /* #6a7981 */
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* ── PREMIUM TAGS (RedTokko) ─────────────────────────────── */
+.tag--premium {
+  background-color: var(--color-tag-tokko-bg);  /* #f5d854 */
+  color: var(--color-tag-tokko-text);            /* #493e0c */
+  font-weight: var(--font-weight-semi);          /* 600 — porcentaje siempre en semi-bold */
+}

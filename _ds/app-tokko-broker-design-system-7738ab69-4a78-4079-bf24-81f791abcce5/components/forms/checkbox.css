@@ -1,0 +1,117 @@
+/* =============================================================================
+   Checkbox — Tokko Design System
+   16×16 · border-radius 4px (--border-radius-xs) · gap 8px
+   Estados: default, hover, focus, disabled | Variantes: checked, unchecked, indeterminate
+   Solo variables de /tokens.
+   ============================================================================= */
+
+/* ── Wrapper ─────────────────────────────────────────────── */
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);                               /* 8px */
+  cursor: pointer;
+  user-select: none;
+}
+.checkbox--disabled { cursor: not-allowed; }
+
+/* ── Input nativo (oculto, posicionado sobre el visual) ───── */
+.checkbox__input {
+  position: absolute;
+  opacity: 0;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  cursor: inherit;
+  z-index: 1;
+}
+
+/* ── Visual box ───────────────────────────────────────────── */
+.checkbox__box {
+  position: relative;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--border-radius-xs);            /* 4px */
+  border: 1px solid var(--color-border-neutral-on-ground);
+  background: var(--color-surface-neutral-ground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: border-color 100ms, background 100ms, box-shadow 100ms;
+}
+
+/* Indicador interno (checkmark / dash) */
+.checkbox__box::after { content: none; display: block; }
+
+/* ── CHECKED ──────────────────────────────────────────────── */
+.checkbox__input:checked + .checkbox__box {
+  background: var(--color-surface-info-high);        /* #007ddd */
+  border-color: var(--color-surface-info-high);
+}
+.checkbox__input:checked + .checkbox__box::after {
+  content: '';
+  width: 7px;
+  height: 4px;
+  border-left: 1.5px solid #fff;
+  border-bottom: 1.5px solid #fff;
+  transform: rotate(-45deg) translateY(-1px);
+}
+
+/* ── INDETERMINATE ────────────────────────────────────────── */
+.checkbox__input:indeterminate + .checkbox__box {
+  background: var(--color-surface-info-high);
+  border-color: var(--color-surface-info-high);
+}
+.checkbox__input:indeterminate + .checkbox__box::after {
+  content: '';
+  width: 8px;
+  height: 2px;
+  background: #fff;
+  border-radius: 1px;
+}
+
+/* ── HOVER ────────────────────────────────────────────────── */
+.checkbox:not(.checkbox--disabled):hover .checkbox__input:not(:checked):not(:indeterminate) + .checkbox__box {
+  border-color: var(--color-border-info);
+}
+.checkbox:not(.checkbox--disabled):hover .checkbox__input:checked + .checkbox__box,
+.checkbox:not(.checkbox--disabled):hover .checkbox__input:indeterminate + .checkbox__box {
+  background: var(--color-blue-600);                 /* #0066b4 */
+  border-color: var(--color-blue-600);
+}
+
+/* ── FOCUS ────────────────────────────────────────────────── */
+.checkbox__input:focus-visible + .checkbox__box {
+  outline: 2px solid var(--color-surface-info-high);
+  outline-offset: 2px;
+}
+
+/* ── DISABLED ─────────────────────────────────────────────── */
+.checkbox__input:disabled + .checkbox__box {
+  border-color: var(--color-state-disabled-border-on-ground);
+  background: var(--color-surface-neutral-ground);
+}
+.checkbox__input:disabled:checked + .checkbox__box,
+.checkbox__input:disabled:indeterminate + .checkbox__box {
+  background: var(--color-state-disabled-text-on-ground);
+  border-color: var(--color-state-disabled-text-on-ground);
+}
+.checkbox__input:disabled:checked + .checkbox__box::after,
+.checkbox__input:disabled:indeterminate + .checkbox__box::after {
+  border-color: #fff;
+  background: #fff;
+}
+
+/* ── Label text ───────────────────────────────────────────── */
+.checkbox__label {
+  font-size: var(--font-size-body-sm);               /* 14px */
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body-sm);
+  color: var(--color-text-neutral-on-ground);
+}
+.checkbox--disabled .checkbox__label {
+  color: var(--color-state-disabled-text-on-ground);
+}

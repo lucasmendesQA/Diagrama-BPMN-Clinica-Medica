@@ -1,0 +1,185 @@
+/* =============================================================================
+   TOKKO BROKER — Button
+   Ported 1:1 from the reference Button component (same tokens, same BEM
+   classes, same variants). Consumed by ButtonDefault (.btn--default) and
+   ButtonCompact (.btn--compact).
+   Solo variables de /tokens — nunca valores hardcodeados.
+   ============================================================================= */
+
+/* ── BASE ────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);                    /* 8px entre ícono y texto */
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-sm);    /* 14px */
+  font-weight: var(--font-weight-semi);   /* 600 */
+  line-height: var(--line-height-body-md);/* 20px */
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+  outline: none;
+  text-decoration: none;
+  transition: background 0.12s, color 0.12s, border-color 0.12s, box-shadow 0.12s, opacity 0.12s;
+}
+
+/* ── TAMAÑOS ─────────────────────────────────────────────── */
+
+/* Default — 44px */
+.btn--default {
+  height: 44px;
+  padding: 12px var(--space-5);           /* 12px 20px */
+  border-radius: var(--border-radius-sm);    /* 8px */
+  font-size: var(--font-size-body-sm);    /* 14px */
+  line-height: var(--line-height-body-md);/* 20px */
+  font-weight: var(--font-weight-bold);   /* 700 — texto 14/20 bold */
+}
+
+/* Compact — 36px */
+.btn--compact {
+  height: 36px;
+  padding: var(--space-2) var(--space-3); /* 8px 12px */
+  border-radius: var(--border-radius-xs-sm); /* 6px */
+}
+
+/* ── ICON-ONLY ───────────────────────────────────────────── */
+.btn--icon.btn--default { width: 44px; padding: 0; }
+.btn--icon.btn--compact { width: 36px; padding: 0; }
+
+/* ── FOCUS VISIBLE (todas las variantes) ─────────────────── */
+.btn:focus-visible {
+  box-shadow:
+    0 0 0 2px var(--color-surface-neutral-ground),
+    0 0 0 4px var(--color-blue-500); /* focus ring */
+}
+
+/* ── PRIMARY ─────────────────────────────────────────────── */
+.btn--primary {
+  background-color: var(--color-surface-primary-high);
+  color: var(--color-text-primary-on-high);
+  border-color: var(--color-surface-primary-high);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-surface-primary-high);
+  background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08));
+  border-color: transparent;
+}
+
+.btn--primary:active {
+  background-color: var(--color-surface-primary-high);
+  background-image: linear-gradient(rgba(0,0,0,0.16), rgba(0,0,0,0.16));
+  border-color: var(--color-surface-primary-high);
+}
+
+/* ── SECONDARY ───────────────────────────────────────────── */
+.btn--secondary {
+  background: transparent;
+  color: var(--color-text-secondary-on-ground);
+  border-color: var(--color-border-secondary);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-surface-secondary-high);
+  background-image: linear-gradient(rgba(185,220,231,0.15), rgba(185,220,231,0.15));
+  border-color: transparent;
+  color: var(--color-text-secondary-on-high);
+}
+
+.btn--secondary:active {
+  background-color: var(--color-surface-secondary-high);
+  background-image: linear-gradient(rgba(185,220,231,0.30), rgba(185,220,231,0.30));
+  border-color: transparent;
+  color: var(--color-text-secondary-on-high);
+}
+
+/* ── SUBTLE ──────────────────────────────────────────────── */
+.btn--subtle {
+  background: transparent;
+  color: var(--color-neutral-800);
+  border-color: transparent;
+}
+
+.btn--subtle:hover  { background: rgba(0,0,0,0.04); color: var(--color-neutral-800); }
+.btn--subtle:active { background: rgba(0,0,0,0.08); color: var(--color-neutral-800); }
+
+/* ── PRIMARY ON INVERSE ──────────────────────────────────── */
+.btn--primary-inverse {
+  background-color: rgba(255,255,255,0.10);
+  color: var(--color-text-neutral-on-high);
+  border-color: transparent;
+}
+
+.btn--primary-inverse:hover {
+  background-color: rgba(255,255,255,0.10);
+  background-image: linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08));
+  border-color: transparent;
+}
+
+.btn--primary-inverse:active {
+  background-color: rgba(255,255,255,0.10);
+  background-image: linear-gradient(rgba(255,255,255,0.16), rgba(255,255,255,0.16));
+  border-color: transparent;
+}
+
+.btn--primary-inverse:focus-visible {
+  box-shadow:
+    0 0 0 2px var(--color-surface-neutral-high),
+    0 0 0 4px var(--color-blue-500);
+}
+
+/* ── SUBTLE ON INVERSE ───────────────────────────────────── */
+.btn--subtle-inverse {
+  background: transparent;
+  color: var(--color-text-neutral-on-high);
+  border-color: transparent;
+}
+
+.btn--subtle-inverse:hover  { background: rgba(255,255,255,0.08); }
+.btn--subtle-inverse:active { background: rgba(255,255,255,0.16); }
+
+.btn--subtle-inverse:focus-visible {
+  box-shadow:
+    0 0 0 2px var(--color-surface-neutral-high),
+    0 0 0 4px #ffffff;
+}
+
+/* ── PREMIUM (gradiente) ─────────────────────────────────── */
+.btn--premium {
+  gap: var(--space-1);                    /* 4px entre ícono y texto */
+  background-image: linear-gradient(
+    to right,
+    var(--color-green-500)     0%,
+    var(--color-secondary-800) 100%
+  );
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  color: var(--color-text-neutral-on-high);
+  border-color: transparent;
+}
+
+.btn--premium i { color: var(--color-yellow-400); }
+
+.btn--premium:hover  { opacity: 0.9; }
+.btn--premium:active { opacity: 0.8; }
+
+/* ── DISABLED (todas las variantes) ─────────────────────── */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  pointer-events: none;
+  background: var(--color-neutral-200)  !important;
+  color: var(--color-state-disabled-text-on-ground) !important;
+  border-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+.btn--primary-inverse:disabled,
+.btn--subtle-inverse:disabled {
+  background: rgba(255,255,255,0.06) !important;
+  color: rgba(255,255,255,0.30) !important;
+  border-color: transparent !important;
+}

@@ -1,0 +1,101 @@
+/* =============================================================================
+   TOKKO BROKER — Typography Tokens
+   Fuente de verdad: Figma "Tokko Design System | Components"
+   Familia: Nunito Sans (variable font, provista por la marca)
+   ============================================================================= */
+
+:root {
+
+  /* ---------------------------------------------------------------------------
+     FAMILY
+     --------------------------------------------------------------------------- */
+  --font-family-base: 'Nunito Sans', sans-serif; /* Familia tipográfica del sistema */
+
+
+  /* ---------------------------------------------------------------------------
+     FONT SIZES
+     Escala de tamaños semántica (body, title, heading, caption)
+     --------------------------------------------------------------------------- */
+  --font-size-caption:   12px; /* Etiquetas muy pequeñas, metadata */
+  --font-size-body-sm:   14px; /* Texto de apoyo, hints, labels secundarios */
+  --font-size-body-md:   16px; /* Texto de cuerpo estándar */
+  --font-size-body-lg:   18px; /* Cuerpo con más énfasis */
+  --font-size-title-sm:  20px; /* Título de sección pequeño */
+  --font-size-title-md:  24px; /* Título de sección estándar */
+  --font-size-title-lg:  28px; /* Título de página / heading */
+  --font-size-heading:   28px; /* Heading principal (typography/text-size/heading) */
+
+
+  /* ---------------------------------------------------------------------------
+     FONT WEIGHTS
+     --------------------------------------------------------------------------- */
+  --font-weight-regular: 400; /* Texto de cuerpo estándar */
+  --font-weight-semi:    600; /* Énfasis medio, labels, valores */
+  --font-weight-bold:    700; /* Títulos, CTAs, alto énfasis */
+
+
+  /* ---------------------------------------------------------------------------
+     LINE HEIGHTS
+     Optimizados para legibilidad en cada nivel de la escala
+     --------------------------------------------------------------------------- */
+  --line-height-caption:   16px; /* Caption compacto */
+  --line-height-body-sm:   20px; /* Body pequeño */
+  --line-height-body-md:   20px; /* Body estándar */
+  --line-height-body-lg:   24px; /* Body grande */
+  --line-height-title-sm:  24px; /* Título pequeño */
+  --line-height-title-md:  28px; /* Título estándar */
+  --line-height-title-lg:  32px; /* Título grande */
+  --line-height-heading:   32px; /* Heading (typography/line-height/heading) */
+
+
+  /* ---------------------------------------------------------------------------
+     LETTER SPACING (tracking)
+     --------------------------------------------------------------------------- */
+  --tracking-normal: 0px;    /* Tracking estándar para body y UI */
+  --tracking-tight:  -0.4px; /* Tracking ajustado para títulos */
+
+
+  /* ---------------------------------------------------------------------------
+     ESTILOS DE TEXTO COMPUESTOS
+     Combinaciones canónicas del sistema (family + size + weight + line-height)
+     --------------------------------------------------------------------------- */
+
+  /* Caption */
+  --text-caption-regular-size:        var(--font-size-caption);
+  --text-caption-regular-weight:      var(--font-weight-regular);
+  --text-caption-regular-line-height: var(--line-height-caption);
+
+  /* Body SM */
+  --text-body-sm-regular-size:        var(--font-size-body-sm);
+  --text-body-sm-regular-weight:      var(--font-weight-regular);
+  --text-body-sm-regular-line-height: var(--line-height-body-sm);
+
+  --text-body-sm-semi-size:           var(--font-size-body-sm);
+  --text-body-sm-semi-weight:         var(--font-weight-semi);
+  --text-body-sm-semi-line-height:    var(--line-height-body-sm);
+
+  /* Body MD */
+  --text-body-md-regular-size:        var(--font-size-body-md);
+  --text-body-md-regular-weight:      var(--font-weight-regular);
+  --text-body-md-regular-line-height: var(--line-height-body-md);
+
+  --text-body-md-semi-size:           var(--font-size-body-md);
+  --text-body-md-semi-weight:         var(--font-weight-semi);
+  --text-body-md-semi-line-height:    var(--line-height-body-md);
+
+  --text-body-md-bold-size:           var(--font-size-body-md);
+  --text-body-md-bold-weight:         var(--font-weight-bold);
+  --text-body-md-bold-line-height:    var(--line-height-body-md);
+
+  /* Title MD */
+  --text-title-md-bold-size:          var(--font-size-title-md);
+  --text-title-md-bold-weight:        var(--font-weight-bold);
+  --text-title-md-bold-line-height:   var(--line-height-title-md);
+  --text-title-md-bold-tracking:      var(--tracking-tight);
+
+  /* Heading */
+  --text-heading-bold-size:           var(--font-size-heading);
+  --text-heading-bold-weight:         var(--font-weight-bold);
+  --text-heading-bold-line-height:    var(--line-height-heading);
+
+}

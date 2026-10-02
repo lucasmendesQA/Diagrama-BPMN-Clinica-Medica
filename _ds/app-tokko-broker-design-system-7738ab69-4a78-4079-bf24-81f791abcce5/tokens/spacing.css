@@ -1,0 +1,199 @@
+/* =============================================================================
+   TOKKO BROKER — Spacing Tokens
+   Fuente de verdad: Figma "Tokko Design System | Components" · Variables collection
+   Nombres 1:1 con Figma: primitivos por valor (--spacing-<px>) y alias por
+   nombre semántico (--spacing-xxs, --spacing-md, --spacing-lg, ...).
+   ============================================================================= */
+
+:root {
+
+  /* ---------------------------------------------------------------------------
+     PRIMITIVOS — Figma "_primitive tokens" (nombrados por su valor en px)
+     Prefijo --ds- (en vez de --spacing-N "pelado"): components/fig-tokens.css
+     define nombres --spacing-N idénticos para sus propios floats sin unidad
+     (ej. --spacing-8: 8, para calc(x * 1px)), y como se importa después de
+     este archivo pisaría estos valores en px. Namespacing evita la colisión
+     sin tocar ningún componente materializado — todos consumen los ALIAS de
+     abajo (--spacing-xxs.., --space-N, --space-component-*), nunca estos
+     primitivos directamente.
+     --------------------------------------------------------------------------- */
+  --ds-spacing-none: 0px;
+  --ds-spacing-4:    4px;
+  --ds-spacing-6:    6px;
+  --ds-spacing-8:    8px;
+  --ds-spacing-12:   12px;
+  --ds-spacing-16:   16px;
+  --ds-spacing-18:   18px;
+  --ds-spacing-20:   20px;
+  --ds-spacing-24:   24px;
+  --ds-spacing-32:   32px;
+  --ds-spacing-40:   40px;
+  --ds-spacing-48:   48px;
+  --ds-spacing-56:   56px;
+  --ds-spacing-64:   64px;
+  --ds-spacing-72:   72px;
+  --ds-spacing-80:   80px;
+  --ds-spacing-1000: 1000px;
+
+  /* ---------------------------------------------------------------------------
+     ALIAS — Figma "alias tokens" (Desktop = Mobile, mismo valor en ambos)
+     --------------------------------------------------------------------------- */
+  --spacing-xxs:    var(--ds-spacing-4);   /* 4px */
+  --spacing-xxs-xs: var(--ds-spacing-6);   /* 6px */
+  --spacing-xs:     var(--ds-spacing-8);   /* 8px */
+  --spacing-xs-sm:  var(--ds-spacing-12);  /* 12px */
+  --spacing-sm:     var(--ds-spacing-16);  /* 16px */
+  --spacing-sm-md:  var(--ds-spacing-20);  /* 20px */
+  --spacing-md:     var(--ds-spacing-24);  /* 24px */
+  --spacing-lg:     var(--ds-spacing-32);  /* 32px */
+  --spacing-xlg:    var(--ds-spacing-40);  /* 40px */
+  --spacing-xxlg:   var(--ds-spacing-48);  /* 48px */
+  --spacing-xxxlg:  var(--ds-spacing-56);  /* 56px */
+  --spacing-xxxxlg: var(--ds-spacing-64);  /* 64px */
+  --spacing-5xlg:   var(--ds-spacing-72);  /* 72px */
+  /* Nota: la tabla de alias de Figma tiene una fila sin nombre semántico que
+     también apunta a spacing/18 — se cubre con el primitivo --spacing-18. */
+
+
+  /* ---------------------------------------------------------------------------
+     COMPATIBILIDAD — nombres anteriores del sistema, alias de los de arriba.
+     Todos los componentes existentes ya usan estos nombres; no hace falta
+     tocarlos. Para código nuevo, preferir los nombres de Figma de arriba.
+     --------------------------------------------------------------------------- */
+
+  /* Escala base-4 (multiplicador de 4px) */
+  --space-0:   var(--ds-spacing-none); /* 0px */
+  --space-1:   var(--ds-spacing-4);    /* 4px */
+  --space-2:   var(--ds-spacing-8);    /* 8px */
+  --space-3:   var(--ds-spacing-12);   /* 12px */
+  --space-4:   var(--ds-spacing-16);   /* 16px */
+  --space-5:   var(--ds-spacing-20);   /* 20px */
+  --space-6:   var(--ds-spacing-24);   /* 24px */
+  --space-8:   var(--ds-spacing-32);   /* 32px */
+  --space-10:  var(--ds-spacing-40);   /* 40px */
+  --space-12:  var(--ds-spacing-48);   /* 48px */
+  --space-16:  var(--ds-spacing-64);   /* 64px */
+  --space-20:  var(--ds-spacing-80);   /* 80px */
+
+  /* Padding interno de componentes
+     NOTA: se referencia --space-N (ya blindado contra fig-tokens.css) y NO los
+     alias semánticos --spacing-xxs/xs/sm/md/lg de arriba — esos alias también
+     los define fig-tokens.css (para sus propios floats sin unidad, consumidos
+     vía calc(x * 1px) por StatusTagS, TagDefault, ContextualToolbarMobile,
+     etc.), y por orden de @import pisarían estos valores en px. */
+  --space-component-xs:   var(--space-1);  /* 4px  — separación mínima interna */
+  --space-component-sm:   var(--space-2);  /* 8px  — padding compacto (chip, badge) */
+  --space-component-md:   var(--space-3);  /* 12px — padding estándar compacto */
+  --space-component-lg:   var(--space-4);  /* 16px — padding estándar default */
+  --space-component-xl:   var(--space-6);  /* 24px — padding generoso */
+
+  /* Gap entre elementos de una fila / columna */
+  --space-gap-xs:   var(--space-1);  /* 4px  — ítems muy juntos */
+  --space-gap-sm:   var(--space-2);  /* 8px  — gap estándar compacto */
+  --space-gap-md:   var(--space-4);  /* 16px — gap estándar */
+  --space-gap-lg:   var(--space-6);  /* 24px — gap de sección */
+  --space-gap-xl:   var(--space-8);  /* 32px — gap de layout */
+
+  /* Márgenes de sección / layout */
+  --space-section-sm:   var(--space-6);  /* 24px */
+  --space-section-md:   var(--space-8);  /* 32px */
+  --space-section-lg:   var(--space-12); /* 48px */
+  --space-section-xl:   var(--space-16); /* 64px */
+
+
+  /* ---------------------------------------------------------------------------
+     BORDER RADIUS — Figma "↳ Border radius" page
+     Tokens con nombres exactos del Design System
+     --------------------------------------------------------------------------- */
+  --border-radius-sharp:  0px;   /* Sin redondeo. Backgrounds o shapes */
+  /* --border-radius-xs también colisiona por nombre con fig-tokens.css (que lo
+     define como var(--size-100)=8, para su propia escala) — se blinda con
+     :root:root más abajo para que gane siempre el valor curado (4px). */
+  --border-radius-xs:     4px;   /* Componentes muy pequeños: Checkbox, Snackbar */
+  --border-radius-xs-sm:  6px;   /* Componentes específicos: Buttons */
+  --border-radius-sm:     8px;   /* Componentes pequeños: List, Card, Fields */
+  --border-radius-sm-md:  12px;  /* Contenedores con elementos XSmall: Containers */
+  --border-radius-md:     16px;  /* Componentes medianos: Alert, Card, Modal, BottomSheet, Banners */
+  --border-radius-lg:     24px;  /* Componentes grandes / overlays: Containers */
+  --border-radius-pill:   100px; /* Forma redondeada: Avatars, IconButton, Chips */
+
+  /* Aliases cortos (backward compat) */
+  --radius-none:    var(--border-radius-sharp);
+  --radius-xs:      var(--border-radius-xs);
+  --radius-sm:      var(--border-radius-xs-sm);
+  --radius-md:      var(--border-radius-sm);
+  --radius-lg:      var(--border-radius-sm-md);
+  --radius-xl:      var(--border-radius-md);
+  --radius-2xl:     var(--border-radius-lg);
+  --radius-full:    var(--border-radius-pill);
+
+  /* ---------------------------------------------------------------------------
+     BREAKPOINTS — Figma "↳ Grid" page
+     Valores mínimos de ancho en los que cambia el layout
+     --------------------------------------------------------------------------- */
+  --bp-xs:   440px;   /* Mobile — hasta 440px */
+  --bp-sm:   441px;   /* Tablet — 441 a 1023px */
+  --bp-md:   1024px;  /* Desktop S — 1024 a 1439px */
+  --bp-lg:   1440px;  /* Desktop (principal) — 1440 a 1919px */
+  --bp-xl:   1920px;  /* Desktop L — 1920 a 2559px */
+  --bp-xxl:  2560px;  /* Desktop XL — 2560px en adelante */
+
+  /* ---------------------------------------------------------------------------
+     GRID — columnas, márgenes y gutters por breakpoint
+     Fuente: Figma "↳ Grid" · Breakpoints table
+     --------------------------------------------------------------------------- */
+
+  /* 440 — Mobile */
+  --grid-xs-columns: 4; /* @kind other */
+  --grid-xs-margin:  16px;
+  --grid-xs-gutter:  16px;
+
+  /* 441–1023 — Tablet */
+  --grid-sm-columns: 8; /* @kind other */
+  --grid-sm-margin:  16px;
+  --grid-sm-gutter:  24px;
+
+  /* 1024–1439 — Desktop S */
+  --grid-md-columns: 12; /* @kind other */
+  --grid-md-margin:  24px;
+  --grid-md-gutter:  24px;
+
+  /* 1440–1919 — Desktop (breakpoint principal) */
+  --grid-lg-columns: 12; /* @kind other */
+  --grid-lg-margin:  32px;
+  --grid-lg-gutter:  24px;
+
+  /* 1920–2559 — Desktop L */
+  --grid-xl-columns: 12; /* @kind other */
+  --grid-xl-margin:  48px;
+  --grid-xl-gutter:  32px;
+
+  /* 2560+ — Desktop XL · contenedor fijo */
+  --grid-xxl-columns:        12; /* @kind other */
+  --grid-xxl-margin:         64px;
+  --grid-xxl-gutter:         48px;
+  --grid-xxl-max-width:      1808px; /* Fixed container a 2560+ */
+
+  /* Ancho mínimo del contenedor principal */
+  --grid-container-min-width: 800px;
+
+  /* ---------------------------------------------------------------------------
+     LEGACY / DEPRECADO — variables del Figma original
+     Mantenidas para compatibilidad, preferir los alias semánticos
+     --------------------------------------------------------------------------- */
+  --spacing-deprecado-xsmall: 16px; /* → usar --spacing-sm (--space-component-lg) */
+  --spacing-deprecado-small:  24px; /* → usar --spacing-md (--space-component-xl) */
+  --spacing-deprecado-xlarge: 48px; /* → usar --spacing-xxlg (--space-section-lg) */
+
+}
+
+/* Blindaje: components/fig-tokens.css importa DESPUÉS de este archivo y
+   redefine --border-radius-xs con su propia escala (=8, pensado para
+   calc(x * 1px)) bajo el mismo :root, por lo que ganaría por orden de
+   importación. Ningún componente materializado consume fig-tokens'
+   --border-radius-xs directamente, así que subir la especificidad acá
+   (repitiendo :root) es seguro y asegura que el valor curado (4px) gane
+   siempre, sin depender del orden de los @import. */
+:root:root {
+  --border-radius-xs: 4px;
+}

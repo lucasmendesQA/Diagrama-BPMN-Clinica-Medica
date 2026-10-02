@@ -1,0 +1,44 @@
+/* =============================================================================
+   SegmentedButtons — Tokko Design System
+   Fila de botones xs (24px) que representan una selección exclusiva.
+   Solo variables de /tokens (colors, typography, spacing) — ver readme.md
+   "Regla obligatoria para componentes nuevos".
+   ============================================================================= */
+
+.segmented-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-xxs); /* 4px */
+  font-family: var(--font-family-base);
+}
+
+.segmented-buttons__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 var(--space-component-sm); /* 8px */
+  border: none;
+  border-radius: var(--border-radius-xs-sm); /* 6px */
+  background: var(--color-surface-secondary-low);
+  color: var(--color-text-secondary-on-medium);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-caption);   /* 12px */
+  line-height: var(--line-height-caption); /* 16px */
+  font-weight: var(--font-weight-semi);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.12s, color 0.12s;
+}
+
+.segmented-buttons__item--active {
+  background: var(--color-surface-secondary-high);
+  color: var(--color-text-neutral-on-high);
+}
+
+.segmented-buttons__item:disabled {
+  cursor: not-allowed;
+  color: var(--color-state-disabled-text-on-ground);
+  background: var(--color-surface-neutral-low);
+}

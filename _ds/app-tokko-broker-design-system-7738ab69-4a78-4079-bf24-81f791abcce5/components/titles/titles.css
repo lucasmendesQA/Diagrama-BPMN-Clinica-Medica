@@ -1,0 +1,180 @@
+/* =============================================================================
+   TOKKO BROKER — Titles
+   Figma node 20603-32813 ("Tokko Design System | Components")
+   5 tamaños · opcionales: subtitle, info icon, link button, campo obligatorio
+   Solo variables de /tokens — nunca valores hardcodeados.
+   ============================================================================= */
+
+/* ── BASE ────────────────────────────────────────────────────────────────── */
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* ── ROW DE TÍTULO (texto + ícono info + asterisco) ──────────────────────── */
+.title__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-gap-sm); /* 8px */
+  width: 100%;
+}
+
+/* ── TEXTO DEL TÍTULO ────────────────────────────────────────────────────── */
+.title__text {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-neutral-on-ground);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+/* ── TAMAÑOS ─────────────────────────────────────────────────────────────── */
+
+/* Extra large — 28px / lh 32px / tracking -0.56px */
+.title--xl {
+  gap: var(--space-gap-sm); /* 8px entre row y subtitle */
+}
+.title--xl .title__text {
+  font-size: var(--font-size-title-lg);   /* 28px */
+  line-height: var(--line-height-title-lg); /* 32px */
+  letter-spacing: -0.56px;
+}
+
+/* Large — 24px / lh 28px / tracking -0.4px */
+.title--l {
+  gap: var(--space-gap-sm); /* 8px */
+}
+.title--l .title__text {
+  font-size: var(--font-size-title-md);   /* 24px */
+  line-height: var(--line-height-title-md); /* 28px */
+  letter-spacing: var(--tracking-tight);  /* -0.4px */
+}
+
+/* Medium — 20px / lh 24px / tracking -0.4px */
+.title--m {
+  gap: var(--space-component-xs); /* 4px */
+}
+.title--m .title__text {
+  font-size: var(--font-size-title-sm);   /* 20px */
+  line-height: var(--line-height-title-sm); /* 24px */
+  letter-spacing: var(--tracking-tight);  /* -0.4px */
+  flex: none; /* compact: no estira */
+}
+
+/* Small — 18px / lh 24px / tracking 0 */
+.title--s {
+  gap: var(--space-component-xs); /* 4px */
+}
+.title--s .title__text {
+  font-size: var(--font-size-body-lg);    /* 18px */
+  line-height: var(--line-height-body-lg); /* 24px */
+  letter-spacing: var(--tracking-normal);
+  flex: none;
+}
+
+/* XSmall — 16px / lh 20px / tracking 0 */
+.title--xs {
+  gap: var(--space-component-xs); /* 4px */
+}
+.title--xs .title__text {
+  font-size: var(--font-size-body-md);    /* 16px */
+  line-height: var(--line-height-body-md); /* 20px */
+  letter-spacing: var(--tracking-normal);
+  flex: none;
+}
+
+/* ── ÍCONO INFO ──────────────────────────────────────────────────────────── */
+.title__info-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-neutral-on-ground-lighter);
+}
+
+/* ── ASTERISCO CAMPO OBLIGATORIO ─────────────────────────────────────────── */
+.title__required {
+  flex-shrink: 0;
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-body-lg);     /* 18px */
+  line-height: var(--line-height-body-lg); /* 24px */
+  color: var(--color-text-primary-on-ground); /* rojo */
+  letter-spacing: var(--tracking-normal);
+}
+
+/* ── INVERSE (sobre fondos oscuros/de color) ─────────────────────────────── */
+.title--inverse .title__text {
+  color: var(--color-text-neutral-on-high);
+}
+.title--inverse .title__subtitle-text {
+  color: var(--color-text-neutral-on-high-lighter);
+}
+
+/* ── SUBTITLE (descripción de sección) ───────────────────────────────────── */
+.title__subtitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-component-md); /* 12px */
+  width: 100%;
+  border-radius: var(--border-radius-xs);
+}
+
+/* Texto del subtitle — XL y L: body/md (16px) */
+.title__subtitle-text {
+  flex: 1 0 0;
+  min-width: 0;
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-body-md);     /* 16px */
+  line-height: var(--line-height-body-md); /* 20px */
+  color: var(--color-text-neutral-on-ground-lighter);
+  letter-spacing: var(--tracking-normal);
+}
+
+/* M, S, XS: body/sm (14px) */
+.title--m .title__subtitle-text,
+.title--s .title__subtitle-text,
+.title--xs .title__subtitle-text {
+  font-size: var(--font-size-body-sm);    /* 14px */
+  flex: none;
+  white-space: nowrap;
+}
+
+/* ── LINK BUTTON ─────────────────────────────────────────────────────────── */
+.title__link {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-gap-sm); /* 8px */
+  cursor: pointer;
+}
+
+.title__link-text {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-body-sm);     /* 14px */
+  line-height: var(--line-height-body-md); /* 20px */
+  color: var(--color-text-info-on-ground);
+  letter-spacing: var(--tracking-normal);
+  white-space: nowrap;
+}
+
+.title__link-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-info-on-ground);
+}

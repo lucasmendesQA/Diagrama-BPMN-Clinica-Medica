@@ -1,0 +1,287 @@
+/* =============================================================================
+   TOKKO BROKER — Color Tokens
+   Fuente de verdad: Figma "Tokko Design System | Components"
+   Estructura: base palette → alias tokens (surface, text/icon, border, states)
+   ============================================================================= */
+
+:root {
+
+  /* ---------------------------------------------------------------------------
+     BASE PALETTE — Neutral / Gray
+     Escala de grises, base de casi todos los textos, fondos y divisores
+     --------------------------------------------------------------------------- */
+  --color-neutral-50:  #fbfcfc; /* Fondo más claro, casi blanco */
+  --color-neutral-100: #f3f6f8; /* Fondo de páginas y contenedores ligeros */
+  --color-neutral-200: #eaeef1; /* Bordes y separadores sutiles */
+  --color-neutral-300: #d6dee2; /* Borde estándar onGround */
+  --color-neutral-400: #c2ccd3; /* Borde deshabilitado */
+  --color-neutral-500: #94a2ab; /* Placeholder / texto deshabilitado */
+  --color-neutral-600: #6a7981; /* Texto secundario / menor jerarquía */
+  --color-neutral-700: #4d5a61; /* Texto terciario */
+  --color-neutral-800: #2e393f; /* Texto principal / onGround */
+  --color-neutral-900: #1d2327; /* Texto de máximo contraste */
+
+  /* ---------------------------------------------------------------------------
+     BASE PALETTE — Primary (Rojo Tokko)
+     Color de marca principal, usado en botones, links e iconos interactivos
+     --------------------------------------------------------------------------- */
+  --color-primary-50:  #fff1f1;
+  --color-primary-100: #facecf;
+  --color-primary-200: #f69e9f;
+  --color-primary-300: #f16d6e;
+  --color-primary-400: #ed3d3e;
+  --color-primary-500: #df1517; /* Color primario canónico */
+  --color-primary-600: #be1214;
+  --color-primary-700: #9c0f10;
+  --color-primary-800: #7b0c0d; /* Texto primario sobre superficie media */
+  --color-primary-900: #5a0809;
+
+  /* ---------------------------------------------------------------------------
+     BASE PALETTE — Secondary (Teal Tokko)
+     Paleta complementaria para acciones alternativas y componentes de media énfasis
+     --------------------------------------------------------------------------- */
+  --color-secondary-50:  #daebf0;
+  --color-secondary-100: #b9dce7;
+  --color-secondary-200: #9ac1d0;
+  --color-secondary-300: #78a6b8;
+  --color-secondary-400: #5e92a6;
+  --color-secondary-500: #427f94; /* Color secundario canónico */
+  --color-secondary-600: #367083;
+  --color-secondary-700: #275c6d; /* Texto secundario onGround */
+  --color-secondary-800: #1a4958; /* Superficie secundaria high */
+  --color-secondary-900: #063341;
+
+  /* ---------------------------------------------------------------------------
+     BASE PALETTE — Green (Positive / Success)
+     Comunica positividad: feedback de éxito, aprobación, progreso
+     --------------------------------------------------------------------------- */
+  --color-green-50:  #e1faf4;
+  --color-green-100: #b9e7dc;
+  --color-green-200: #91d4c4;
+  --color-green-300: #68c2ab;
+  --color-green-400: #40af93;
+  --color-green-500: #189c7b; /* Verde canónico */
+  --color-green-600: #137d62; /* Tokki AI surface high */
+  --color-green-700: #0e5e4a; /* Texto positive onMedium */
+  --color-green-800: #0a3e31;
+  --color-green-900: #051f19;
+
+  /* ---------------------------------------------------------------------------
+     BASE PALETTE — Blue (Info)
+     Para componentes informativos, highlights y estados de visibilidad
+     --------------------------------------------------------------------------- */
+  --color-blue-50:  #e8f4fb;
+  --color-blue-100: #bee2ff;
+  --color-blue-200: #94d0ff;
+  --color-blue-300: #6abeff;
+  --color-blue-400: #48a2f2;
+  --color-blue-500: #007ddd; /* Azul canónico */
+  --color-blue-600: #0066b4;
+  --color-blue-700: #004f8b; /* Texto info onMedium */
+
+  /* ---------------------------------------------------------------------------
+     BASE PALETTE — Yellow (Warning)
+     Atención y mensajes contextuales sin urgencia crítica
+     --------------------------------------------------------------------------- */
+  --color-yellow-50:  #fefaea;
+  --color-yellow-100: #fdf5d4;
+  --color-yellow-200: #faeba9;
+  --color-yellow-300: #f8e27f;
+  --color-yellow-400: #f5d854; /* Tokko tag background */
+  --color-yellow-500: #f3ce29; /* Amarillo canónico */
+  --color-yellow-600: #c2a521;
+  --color-yellow-700: #927c19;
+  --color-yellow-800: #615210; /* Texto onYellow */
+  --color-yellow-900: #493e0c; /* Texto onTokko */
+
+  /* ---------------------------------------------------------------------------
+     BASE PALETTE — Orange (Extended)
+     Indicadores de alta visibilidad, sin urgencia crítica
+     --------------------------------------------------------------------------- */
+  --color-orange-50:  #fef7f2;
+  --color-orange-100: #feece0;
+  --color-orange-200: #fad1b7;
+  --color-orange-300: #f7b387;
+  --color-orange-400: #f49458;
+  --color-orange-500: #f17628; /* Naranja canónico */
+  --color-orange-600: #d75c0e;
+  --color-orange-700: #a7480b; /* Texto onOrange */
+  --color-orange-800: #783308;
+  --color-orange-900: #4e280f;
+
+  /* ---------------------------------------------------------------------------
+     BASE PALETTE — Purple (Extended)
+     Tags, categorización y diferenciación visual
+     --------------------------------------------------------------------------- */
+  --color-purple-50:  #f7f2fc;
+  --color-purple-100: #f0e5f8;
+  --color-purple-200: #e8d8f5;
+  --color-purple-300: #ceb1e6;
+  --color-purple-400: #ae8ccb;
+  --color-purple-500: #b27dde; /* Púrpura canónico */
+  --color-purple-600: #9466ba;
+  --color-purple-700: #764f96; /* Texto onPurple */
+  --color-purple-800: #573871;
+  --color-purple-900: #39214d;
+
+
+  /* ===========================================================================
+     ALIAS TOKENS — Surface
+     Usados exclusivamente como fill de páginas y elementos (background)
+     =========================================================================== */
+
+  /* Neutral */
+  --color-surface-neutral-ground:  #ffffff; /* Fondo base / lienzo de la app */
+  --color-surface-neutral-low:     var(--color-neutral-100); /* Contenedor con más peso que ground */
+  --color-surface-neutral-medium:  var(--color-neutral-200); /* Mayor énfasis, como cards elevadas */
+  --color-surface-neutral-high:    #2e393f;  /* Superficie oscura, máximo contraste */
+
+  /* Primary */
+  --color-surface-primary-low:     var(--color-primary-100); /* Fondo ligero primario */
+  --color-surface-primary-medium:  #facecf;  /* Fondo medio primario */
+  --color-surface-primary-high:    #df1517;  /* Fondo primario sólido (botón primario) */
+
+  /* Secondary */
+  --color-surface-secondary-low:   var(--color-secondary-50);  /* #daebf0 — Surface/Secondary/Low */
+  --color-surface-secondary-medium: #b9dce7; /* Fondo medio secundario */
+  --color-surface-secondary-high:  #1a4958;  /* Fondo secundario sólido */
+
+  /* Critical */
+  --color-surface-critical-low:    var(--color-primary-100); /* Fondo crítico sutil */
+  --color-surface-critical-high:   var(--color-primary-500); /* Fondo crítico sólido */
+
+  /* Warning */
+  --color-surface-warning-low:     #fefaea;  /* Fondo de alerta sutil */
+
+  /* Info */
+  --color-surface-info-low:        var(--color-blue-50);   /* Fondo informativo sutil */
+  --color-surface-info-medium:     var(--color-blue-100);  /* Fondo informativo medio */
+  --color-surface-info-high:       var(--color-blue-500);  /* Fondo informativo sólido */
+
+  /* Positive */
+  --color-surface-positive-low:    var(--color-green-50);  /* Fondo de éxito sutil */
+  --color-surface-positive-high:   var(--color-green-600); /* Fondo de éxito sólido */
+
+  /* Inverse */
+  --color-surface-inverse-low:     rgba(0, 0, 0, 0.04); /* Overlay neutro transparente */
+
+  /* Overlay */
+  --color-surface-overlay-low:     rgba(0, 0, 0, 0.48); /* Modal / drawer scrim */
+
+  /* Tokki AI */
+  --color-surface-tokki-ai-ground: rgba(104, 194, 171, 0.25); /* Fondo Tokki AI translúcido */
+  --color-surface-tokki-ai-high:   #137d62;                   /* Fondo Tokki AI sólido */
+
+  /* Tags */
+  --color-surface-tag-tokko:       #f5d854;  /* Tag Tokko (amarillo) */
+  --color-surface-tag-orange-low:  #feece0;  /* Tag naranja sutil */
+  --color-surface-tag-purple-low:  #f0e5f8;  /* Tag púrpura sutil */
+
+
+  /* ===========================================================================
+     ALIAS TOKENS — Text & Icon
+     Usados exclusivamente en textos e iconografía
+     El sufijo indica en qué superficie se puede aplicar
+     =========================================================================== */
+
+  /* Neutral */
+  --color-text-neutral-on-ground:          #2e393f; /* Texto principal sobre fondo base */
+  --color-text-neutral-on-ground-lighter:  #6a7981; /* Texto secundario / menor jerarquía */
+  --color-text-neutral-on-high:            #fbfcfc; /* Texto sobre superficie oscura */
+  --color-text-neutral-on-high-lighter:    #eaeef1; /* Texto secundario sobre superficie oscura */
+
+  /* Primary */
+  --color-text-primary-on-ground:   #df1517; /* Link / acción primaria sobre fondo base */
+  --color-text-primary-on-medium:   #7b0c0d; /* Texto primario sobre superficie media */
+  --color-text-primary-on-high:     #ffffff; /* Texto sobre botón primario sólido */
+
+  /* Secondary */
+  --color-text-secondary-on-ground:  #275c6d; /* Texto secundario sobre fondo base */
+  --color-text-secondary-on-medium:  #1a4958; /* Texto secundario sobre superficie media */
+  --color-text-secondary-on-high:    #ffffff; /* Texto sobre botón secundario sólido */
+
+  /* Critical */
+  --color-text-critical-on-ground:   var(--color-primary-500); /* Error sobre fondo base */
+  --color-text-critical-on-medium:   var(--color-primary-800); /* Error sobre superficie media */
+  --color-text-critical-on-high:     var(--color-primary-50);  /* Error sobre superficie crítica */
+
+  /* Warning */
+  --color-text-warning-on-ground:    var(--color-yellow-800); /* Advertencia sobre fondo base */
+  --color-text-warning-on-medium:    var(--color-yellow-800); /* Advertencia sobre superficie media */
+  --color-text-warning-on-high:      var(--color-yellow-50);  /* Advertencia sobre superficie warning */
+
+  /* Info */
+  --color-text-info-on-ground:       var(--color-blue-600);  /* Info sobre fondo base */
+  --color-text-info-on-medium:       #004f8b;                /* Info sobre superficie media */
+  --color-text-info-on-high:         #e8f4fb;                /* Info sobre superficie info sólida */
+
+  /* Positive */
+  --color-text-positive-on-ground:   var(--color-green-700); /* Éxito sobre fondo base */
+  --color-text-positive-on-medium:   #0e5e4a;                /* Éxito sobre superficie media */
+  --color-text-positive-on-high:     #e1faf4;                /* Éxito sobre superficie sólida */
+
+  /* Tokki */
+  --color-text-tokki-on-ground:       #275c6d; /* Tokki sobre fondo base */
+  --color-text-tokki-on-high:         #ffffff; /* Tokki sobre superficie sólida */
+  --color-text-tokki-on-tokki-ground: #1a4958; /* Tokki sobre fondo Tokki */
+
+  /* Tags */
+  --color-text-tag-on-tokko:   #493e0c; /* Texto sobre tag Tokko */
+  --color-text-tag-on-yellow:  #615210; /* Texto sobre tag amarillo */
+  --color-text-tag-on-orange:  #a7480b; /* Texto sobre tag naranja */
+  --color-text-tag-on-purple:  #764f96; /* Texto sobre tag púrpura */
+
+
+  /* ===========================================================================
+     ALIAS TOKENS — Border
+     =========================================================================== */
+  --color-border-neutral-on-ground:  #d6dee2; /* Borde estándar sobre fondo base */
+  --color-border-primary:            var(--color-primary-500);    /* Borde interactivo primario */
+  --color-border-secondary:          var(--color-secondary-500);  /* Borde interactivo secundario */
+  --color-border-secondary-onsecondary: var(--color-secondary-200); /* #9ac1d0 — Border/onSecondary (estado filtered) */
+  --color-border-critical:           var(--color-primary-500);    /* Borde de error / crítico */
+  --color-border-warning:            var(--color-yellow-500);     /* Borde de advertencia */
+  --color-border-positive:           var(--color-green-500);      /* Borde de éxito */
+  --color-border-info:               var(--color-blue-500);       /* Borde informativo */
+  --color-border-tokki:              var(--color-secondary-500);  /* Borde Tokki */
+
+
+  /* ===========================================================================
+     ALIAS TOKENS — Tags
+     Fuente: Figma "↳ Tags" · Tag_Default component
+     Cuatro variantes de color. Valores exactos extraídos de Figma.
+     =========================================================================== */
+
+  /* Default (teal / secondary) */
+  --color-tag-default-bg:       #daebf0; /* colors/surface/secondary/low */
+  --color-tag-default-bg-hover: #b9dce7; /* secondary-100 — estado hovered */
+  --color-tag-default-text:     #1a4958; /* colors/text_icon/secondary/onmedium */
+
+  /* Tokko (amarillo) */
+  --color-tag-tokko-bg:         #f5d854; /* colors/surface/tags/tokko */
+  --color-tag-tokko-bg-hover:   #f3ce29; /* yellow-500 — estado hovered */
+  --color-tag-tokko-text:       #493e0c; /* colors/text_icon/tags/ontokko */
+
+  /* Orange */
+  --color-tag-orange-bg:        #feece0; /* colors/surface/tags/orange-low */
+  --color-tag-orange-bg-hover:  #fad1b7; /* orange-200 — estado hovered */
+  --color-tag-orange-text:      #a7480b; /* colors/text_icon/tags/onorange */
+
+  /* Purple */
+  --color-tag-purple-bg:        #f0e5f8; /* colors/surface/tags/purple-low */
+  --color-tag-purple-bg-hover:  #e8d8f5; /* purple-200 — estado hovered */
+  --color-tag-purple-text:      #764f96; /* colors/text_icon/tags/onpurple */
+
+
+  /* ===========================================================================
+     ALIAS TOKENS — States (interacción)
+     Se aplican como capas sobre el componente para simular estados interactivos
+     =========================================================================== */
+  --color-state-tokki-hover:                rgba(39, 92, 109, 0.08);  /* Hover sobre elemento Tokki */
+
+  --color-state-neutral-hover:              rgba(148, 162, 171, 0.1); /* Hover/selección sobre superficie neutra */
+
+  --color-state-disabled-text-on-ground:    var(--color-neutral-400); /* Texto/icono deshabilitado */
+  --color-state-disabled-border-on-ground:  var(--color-neutral-300); /* Borde deshabilitado */
+
+}

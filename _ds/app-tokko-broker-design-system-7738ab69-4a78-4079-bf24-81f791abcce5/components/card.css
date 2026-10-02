@@ -1,0 +1,138 @@
+/* =============================================================================
+   Card — Tokko Design System
+   Contenedor dinámico: hoy resuelve el layout imagen + título + tag + toggle
+   con una barra inferior opcional de acciones. variant="slot" da solo el
+   contenedor (borde, radio, fondo, padding) para armar cualquier otra card.
+   Solo variables de /tokens.
+   ============================================================================= */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 380px;
+  gap: var(--space-4); /* 16px */
+  padding: var(--space-4); /* 16px */
+  background: var(--color-surface-neutral-ground);
+  border: 1px solid var(--color-border-neutral-on-ground);
+  border-radius: var(--border-radius-sm-md); /* 12px */
+  font-family: var(--font-family-base);
+}
+
+/* ── HEADER: imagen + título/tag/subtitle + toggle ───────────────────────── */
+.card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3); /* 12px */
+}
+
+.card__title-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-component-xs); /* 4px — mismo gap que title--xs */
+  flex: 1;
+  min-width: 0;
+}
+
+.card__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2); /* 8px */
+}
+
+/* Titles ocupa 100% de ancho por diseño (para su uso standalone) — acá
+   necesita "hug content" para que el tag quede pegado al lado, no empujado
+   al extremo derecho de la fila. */
+.card__title-row .title {
+  width: auto;
+  flex: none;
+}
+.card__title-row .title__row {
+  width: auto;
+}
+
+/* ── MOCK: contenedor de imagen ───────────────────────────────────────────
+   Reemplazar por el componente de imagen real cuando exista en el sistema. */
+.card__image-mock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--border-radius-sm-md); /* 12px */
+  border: 1px solid var(--color-border-neutral-on-ground);
+  background: var(--color-surface-neutral-low);
+}
+.card__image-mock i {
+  font-size: 20px;
+  color: var(--color-neutral-400);
+}
+
+/* ── MOCK: toggle estándar ─────────────────────────────────────────────── */
+.card__toggle-mock {
+  flex-shrink: 0;
+  width: 44px;
+  height: 24px;
+  padding: 2px;
+  border: none;
+  border-radius: var(--border-radius-pill);
+  background: var(--color-neutral-300);
+  cursor: pointer;
+  transition: background-color 0.15s;
+  box-sizing: border-box;
+}
+.card__toggle-mock--on {
+  background: var(--color-surface-info-high);
+}
+.card__toggle-mock-knob {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--border-radius-pill);
+  background: var(--color-surface-neutral-ground);
+  box-shadow: 0 1px 2px rgba(29, 35, 39, 0.2);
+  transform: translateX(0);
+  transition: transform 0.15s;
+}
+.card__toggle-mock--on .card__toggle-mock-knob {
+  transform: translateX(20px);
+}
+
+/* ── DIVIDER + BARRA DE ACCIONES ──────────────────────────────────────── */
+.card__divider {
+  height: 1px;
+  background: var(--color-neutral-200);
+}
+
+.card__actions {
+  display: flex;
+  gap: var(--space-2); /* 8px */
+}
+
+/* ── MOCK: toggle buttons ─────────────────────────────────────────────── */
+.card__action-btn-mock {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1); /* 4px */
+  height: 40px;
+  padding: 0 var(--space-3);
+  border: none;
+  border-radius: var(--border-radius-xs-sm); /* 6px */
+  background: var(--color-surface-secondary-low);
+  color: var(--color-text-secondary-on-ground);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-sm); /* 14px */
+  font-weight: var(--font-weight-semi);
+  cursor: pointer;
+  transition: background-color 0.12s, color 0.12s;
+}
+.card__action-btn-mock--active {
+  background: var(--color-surface-secondary-high);
+  color: var(--color-text-secondary-on-high);
+}
+.card__action-btn-mock i {
+  font-size: 12px;
+}

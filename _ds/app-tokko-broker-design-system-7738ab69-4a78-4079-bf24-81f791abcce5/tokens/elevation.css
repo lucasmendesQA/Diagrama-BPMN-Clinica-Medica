@@ -1,0 +1,22 @@
+/* =============================================================================
+   TOKKO BROKER — Elevation & Border Tokens
+   Source: Figma "Elevation" page. The system favors a hairline inset border
+   over drop shadows for resting cards/containers; true drop shadows are
+   reserved for floating/overlay surfaces (menus, FABs, snackbars).
+   ============================================================================= */
+
+:root {
+
+  /* Resting containers (cards, inputs, list rows) — inset hairline, no shadow */
+  --elevation-0-border: inset 0 0 0 1px rgb(214, 222, 226);
+
+  /* Raised — subtle ambient shadow, used sparingly for hover/press feedback */
+  --elevation-1: 0px 0px 0px 0px rgba(95, 99, 120, 0.1), 0px 0px 10px 0px rgba(95, 99, 120, 0.1);
+
+  /* Overlay — bottom sheets, dialogs, dropdown menus */
+  --elevation-2: 0px 4px 24px 0px rgba(0, 0, 0, 0.1);
+
+  /* Scrim behind modals / bottom sheets */
+  --elevation-scrim: rgba(0, 0, 0, 0.48);
+
+}

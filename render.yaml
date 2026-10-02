@@ -1,0 +1,16 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+# Static Site: serve a pasta ./public sem etapa de build.
+services:
+  - type: web
+    name: bpmn-clinica-medica
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: ./public
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /_ds/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /support.js
+        name: Cache-Control
+        value: public, max-age=86400

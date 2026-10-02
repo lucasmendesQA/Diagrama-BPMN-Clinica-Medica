@@ -1,0 +1,29 @@
+/* =============================================================================
+   TOKKO BROKER DESIGN SYSTEM — global stylesheet entry point
+   Everything here is an @import; edit the individual token files, not this one.
+   ============================================================================= */
+
+@import './tokens/fonts.css';
+@import './tokens/icons.css';
+@import './tokens/colors.css';
+@import './tokens/spacing.css';
+@import './tokens/typography.css';
+@import './tokens/elevation.css';
+
+/* Figma-exported implementation tokens consumed directly by the materialized
+   /components — see readme.md "Two token layers" for why this coexists with
+   the curated tokens/ above. Default (:root) values already resolve to the
+   Tokko Broker brand; additional brand-portfolio theme scopes in this file
+   are inert unless explicitly activated and are not part of this design
+   system. */
+@import './components/fig-tokens.css';
+@import './components/fig-assets.css';
+@import './components/button.css';
+@import './components/segmented-buttons.css';
+@import './components/titles/titles.css';
+@import './components/media/image.css';
+@import './components/tags/tags.css';
+@import './components/card/property-card.css';
+@import './components/card.css';
+@import './components/forms/checkbox.css';
+@import './components/contact-card.css';

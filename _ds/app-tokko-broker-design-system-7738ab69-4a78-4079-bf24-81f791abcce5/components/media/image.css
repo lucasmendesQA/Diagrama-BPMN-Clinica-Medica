@@ -1,0 +1,261 @@
+/* =============================================================================
+   TOKKO BROKER — Image
+   Thumbnail de propiedad. Tamaño small: 90×60 px · border-radius 8px
+   Variantes: default · deleted · vertical · placeholder · no-image · skeleton · add · logo
+   Solo variables de /tokens — nunca valores hardcodeados.
+   ============================================================================= */
+
+/* ── SKELETON KEYFRAME ───────────────────────────────────── */
+@keyframes tk-image-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── BASE ────────────────────────────────────────────────── */
+.tk-image {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* ── TAMAÑO SM: 90×60 ────────────────────────────────────── */
+.tk-image--sm {
+  width: 90px;
+  height: 60px;
+  border-radius: var(--border-radius-sm); /* 8px */
+}
+
+/* ── TAMAÑO MD: responsive · aspect-ratio 5:3 ───────────── */
+.tk-image--md {
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  border-radius: var(--border-radius-sm);
+  flex-shrink: 1;
+}
+
+/* En md la imagen usa posición absoluta para llenar el contenedor */
+.tk-image--md .tk-image__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.tk-image--md.tk-image--vertical .tk-image__img {
+  object-fit: contain;
+}
+
+.tk-image--md .tk-image__logo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: var(--space-4); /* 16px */
+  box-sizing: border-box;
+}
+
+/* Íconos y texto escalados para md */
+.tk-image--md .tk-image__icon     { font-size: 32px; }
+.tk-image--md .tk-image__icon--add { font-size: 32px; }
+.tk-image--md .tk-image__label    { font-size: var(--font-size-body-sm); line-height: var(--line-height-body-sm); }
+
+/* ── IMAGEN INTERNA (default / deleted) ──────────────────── */
+.tk-image__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ── VARIANTE DEFAULT ────────────────────────────────────── */
+.tk-image--default {
+  background: var(--color-surface-neutral-low);
+}
+
+/* ── VARIANTE DELETED (blanco y negro) ───────────────────── */
+.tk-image--deleted .tk-image__img {
+  filter: grayscale(100%);
+}
+
+/* ── VARIANTE VERTICAL (se adapta al alto, no estira) ────── */
+.tk-image--vertical {
+  background: var(--color-surface-neutral-low);
+}
+
+.tk-image--vertical .tk-image__img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* ── VARIANTE PLACEHOLDER (ícono de propiedad) ───────────── */
+.tk-image--placeholder {
+  background: var(--color-surface-neutral-low);
+}
+
+/* ── VARIANTE NO IMAGE ───────────────────────────────────── */
+.tk-image--no-image {
+  background: var(--color-surface-neutral-low);
+  gap: var(--space-1); /* 4px entre ícono y texto */
+}
+
+/* ── VARIANTE SKELETON ───────────────────────────────────── */
+.tk-image--skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-neutral-200) 25%,
+    var(--color-neutral-100) 50%,
+    var(--color-neutral-200) 75%
+  );
+  background-size: 200% 100%;
+  animation: tk-image-shimmer 1.4s ease-in-out infinite;
+}
+
+/* ── VARIANTE ADD ────────────────────────────────────────── */
+.tk-image--add {
+  background: var(--color-surface-neutral-ground);
+  border: 1px dashed var(--color-border-neutral-on-ground);
+  cursor: pointer;
+  transition: background-color 0.12s, border-color 0.12s;
+  box-sizing: border-box;
+}
+
+.tk-image--add:hover {
+  background: var(--color-surface-neutral-low);
+  border-color: var(--color-neutral-500);
+}
+
+/* ── VARIANTE LOGO ───────────────────────────────────────── */
+.tk-image--logo {
+  background: var(--color-surface-neutral-ground);
+  border: 1px solid var(--color-border-neutral-on-ground);
+  box-sizing: border-box;
+}
+
+/* ── ÍCONO INTERNO (placeholder / no-image) ──────────────── */
+.tk-image__icon {
+  font-size: 20px;
+  line-height: 1;
+  color: var(--color-neutral-400);
+  display: block;
+}
+
+/* ── ÍCONO ADD ───────────────────────────────────────────── */
+.tk-image__icon--add {
+  font-size: 22px;
+  color: var(--color-neutral-600);
+}
+
+/* ── TEXTO "No image" ────────────────────────────────────── */
+.tk-image__label {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-caption);        /* 12px */
+  line-height: var(--line-height-caption);    /* 16px */
+  font-weight: var(--font-weight-regular);
+  color: var(--color-neutral-500);
+}
+
+/* ── OVERLAY: CHECKBOX ──────────────────────────────────── */
+.tk-image__checkbox {
+  position: absolute;
+  top: var(--space-2);   /* 8px */
+  left: var(--space-2);  /* 8px */
+  z-index: 1;
+}
+
+/* El label necesita position: relative para anclar el input oculto */
+.tk-image__checkbox .checkbox {
+  position: relative;
+  display: flex;
+  width: 16px;
+  height: 16px;
+}
+
+/* Checkbox visual — no existía estilo para .checkbox/.checkbox__box en el
+   componente de origen (PropertyImage lo asume pero nunca lo define); se
+   completó acá con el mismo tratamiento visual (16px, radius 4px) que el
+   resto de checkboxes del kit (BaseCheckbox). */
+.checkbox__input {
+  position: absolute;
+  inset: 0;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox__box {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: var(--color-surface-neutral-ground);
+  box-shadow: inset 0 0 0 1px var(--color-border-neutral-on-ground);
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.checkbox__input:checked + .checkbox__box {
+  background: var(--color-surface-info-high);
+  box-shadow: none;
+}
+
+/* Checkmark dibujado en CSS (evita depender del icon font para un glifo tan chico) */
+.checkbox__input:checked + .checkbox__box::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 5px;
+  width: 8px;
+  height: 4px;
+  border-left: 1.5px solid var(--color-text-info-on-high, #fff);
+  border-bottom: 1.5px solid var(--color-text-info-on-high, #fff);
+  transform: rotate(-45deg);
+}
+
+/* ── OVERLAY: DOTS ───────────────────────────────────────── */
+.tk-image__dots {
+  position: absolute;
+  bottom: var(--space-2); /* 8px */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);    /* 4px */
+  z-index: 1;
+}
+
+.tk-image__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--border-radius-pill);
+  background: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+  transition: background-color 0.12s;
+}
+
+.tk-image__dot--active {
+  background: var(--color-surface-neutral-ground);
+}
+
+/* ── IMAGEN LOGO ─────────────────────────────────────────── */
+.tk-image__logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: var(--space-2); /* 8px — logo respira */
+  box-sizing: border-box;
+}

@@ -1,0 +1,253 @@
+/* =============================================================================
+   TOKKO BROKER — Icon font (IcoMoon)
+   The product's own icon library, exported from Figma's "Icons Library" —
+   ~230 glyphs covering navigation, actions, property attributes, social,
+   and file types. Consumed as a class-based icon font, never inline SVG.
+   Usage: <i class="icon-agenda"></i>
+   ============================================================================= */
+
+@font-face {
+  font-family: 'tokko-icons';
+  src: url('../assets/icons/icomoon.ttf') format('truetype'),
+       url('../assets/icons/icomoon.woff') format('woff'),
+       url('../assets/icons/icomoon.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'tokko-icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-acciones:before { content: "\e900"; }
+.icon-aceptar:before { content: "\e901"; }
+.icon-adicionales:before { content: "\e902"; }
+.icon-adjuntar:before { content: "\e903"; }
+.icon-admin:before { content: "\e904"; }
+.icon-agenda:before { content: "\e905"; }
+.icon-agente:before { content: "\e906"; }
+.icon-agregar:before { content: "\e907"; }
+.icon-aguacorriente:before { content: "\e908"; }
+.icon-ai:before { content: "\e909"; }
+.icon-alerta_round:before { content: "\e90a"; }
+.icon-ambientes:before { content: "\e90b"; }
+.icon-analisiscontactos:before { content: "\e90c"; }
+.icon-appexchange:before { content: "\e90d"; }
+.icon-apple:before { content: "\e90e"; }
+.icon-archivos:before { content: "\e90f"; }
+.icon-atras:before { content: "\e910"; }
+.icon-audio:before { content: "\e911"; }
+.icon-bajada:before { content: "\e912"; }
+.icon-balconterraza:before { content: "\e913"; }
+.icon-bandejadeentrada:before { content: "\e914"; }
+.icon-banos:before { content: "\e915"; }
+.icon-bold:before { content: "\e916"; }
+.icon-bullets:before { content: "\e917"; }
+.icon-buscar:before { content: "\e918"; }
+.icon-busquedareciente:before { content: "\e919"; }
+.icon-calendario:before { content: "\e91a"; }
+.icon-camara:before { content: "\e91b"; }
+.icon-celular:before { content: "\e91c"; }
+.icon-center-align:before { content: "\e91d"; }
+.icon-cerrar:before { content: "\e91e"; }
+.icon-cerraroportunidad:before { content: "\e91f"; }
+.icon-check:before { content: "\e920"; }
+.icon-cochera:before { content: "\e921"; }
+.icon-colapsar:before { content: "\e922"; }
+.icon-colega:before { content: "\e923"; }
+.icon-comparar:before { content: "\e924"; }
+.icon-compartir:before { content: "\e925"; }
+.icon-comprar:before { content: "\e926"; }
+.icon-condicion:before { content: "\e927"; }
+.icon-configuracion:before { content: "\e928"; }
+.icon-consultas:before { content: "\e929"; }
+.icon-contactos:before { content: "\e92a"; }
+.icon-contactoscreadosporetiqueta:before { content: "\e92b"; }
+.icon-copiar:before { content: "\e92c"; }
+.icon-cronometro:before { content: "\e92d"; }
+.icon-cropimage:before { content: "\e92e"; }
+.icon-cubierta:before { content: "\e92f"; }
+.icon-dashboard:before { content: "\e930"; }
+.icon-denunciar:before { content: "\e931"; }
+.icon-descargar:before { content: "\e932"; }
+.icon-deshacer:before { content: "\e933"; }
+.icon-deslinkear:before { content: "\e934"; }
+.icon-destaque:before { content: "\e935"; }
+.icon-difusion:before { content: "\e936"; }
+.icon-disponibilidad:before { content: "\e937"; }
+.icon-disposicion:before { content: "\e938"; }
+.icon-doblecheck:before { content: "\e939"; }
+.icon-dormitorios:before { content: "\e93a"; }
+.icon-dropdown:before { content: "\e93b"; }
+.icon-dudas:before { content: "\e93c"; }
+.icon-duplicados:before { content: "\e93d"; }
+.icon-editar:before { content: "\e93e"; }
+.icon-editarfichainfo:before { content: "\e93f"; }
+.icon-electricidad:before { content: "\e940"; }
+.icon-eliminar:before { content: "\e941"; }
+.icon-email:before { content: "\e942"; }
+.icon-emailabierto:before { content: "\e943"; }
+.icon-emprendimientos:before { content: "\e944"; }
+.icon-empresa:before { content: "\e945"; }
+.icon-enviar:before { content: "\e946"; }
+.icon-equivalencia:before { content: "\e947"; }
+.icon-error:before { content: "\e948"; }
+.icon-estadisticas:before { content: "\e949"; }
+.icon-etiquetas:before { content: "\e94a"; }
+.icon-eventocancelado:before { content: "\e94b"; }
+.icon-eventoconfirmado:before { content: "\e94c"; }
+.icon-eventodesconocido:before { content: "\e94d"; }
+.icon-excel:before { content: "\e94e"; }
+.icon-expand:before { content: "\e94f"; }
+.icon-expensas:before { content: "\e950"; }
+.icon-exportar:before { content: "\e951"; }
+.icon-facebook:before { content: "\e952"; }
+.icon-facturacion:before { content: "\e953"; }
+.icon-favoritos:before { content: "\e954"; }
+.icon-favoritossolido:before { content: "\e955"; }
+.icon-feedback:before { content: "\e956"; }
+.icon-filtros:before { content: "\e957"; }
+.icon-flechaabajo:before { content: "\e958"; }
+.icon-flechaarriba:before { content: "\e959"; }
+.icon-fondo:before { content: "\e95a"; }
+.icon-frente:before { content: "\e95b"; }
+.icon-gas:before { content: "\e95c"; }
+.icon-gestordearchivos:before { content: "\e95d"; }
+.icon-gimnasio:before { content: "\e95e"; }
+.icon-google:before { content: "\e95f"; }
+.icon-grupodecontactos:before { content: "\e960"; }
+.icon-guardar:before { content: "\e961"; }
+.icon-habilitarportal:before { content: "\e962"; }
+.icon-heading:before { content: "\e963"; }
+.icon-igcomentarios:before { content: "\e964"; }
+.icon-igenviar:before { content: "\e965"; }
+.icon-igguardar:before { content: "\e966"; }
+.icon-igmegusta:before { content: "\e967"; }
+.icon-imagenes:before { content: "\e968"; }
+.icon-info:before { content: "\e969"; }
+.icon-informacioninterna:before { content: "\e96a"; }
+.icon-instagram:before { content: "\e96b"; }
+.icon-interlineado:before { content: "\e96c"; }
+.icon-ir:before { content: "\e96d"; }
+.icon-iratokko:before { content: "\e96e"; }
+.icon-italic:before { content: "\e96f"; }
+.icon-justify-aling:before { content: "\e970"; }
+.icon-kanban:before { content: "\e971"; }
+.icon-left-align:before { content: "\e972"; }
+.icon-link:before { content: "\e973"; }
+.icon-linkedin:before { content: "\e974"; }
+.icon-list:before { content: "\e975"; }
+.icon-lista:before { content: "\e976"; }
+.icon-mapa:before { content: "\e977"; }
+.icon-menu:before { content: "\e978"; }
+.icon-mostrarmenos:before { content: "\e979"; }
+.icon-mover:before { content: "\e97a"; }
+.icon-movimientosdepropiedades:before { content: "\e97b"; }
+.icon-negativo:before { content: "\e97c"; }
+.icon-neutro:before { content: "\e97d"; }
+.icon-nota:before { content: "\e97e"; }
+.icon-noticias:before { content: "\e97f"; }
+.icon-notificaciones:before { content: "\e980"; }
+.icon-novedades:before { content: "\e981"; }
+.icon-nuevanota:before { content: "\e982"; }
+.icon-nuevapropiedad:before { content: "\e983"; }
+.icon-nuevocontacto:before { content: "\e984"; }
+.icon-nuevoevento:before { content: "\e985"; }
+.icon-nuevomensaje:before { content: "\e986"; }
+.icon-ocultar:before { content: "\e987"; }
+.icon-oportunidades:before { content: "\e988"; }
+.icon-ordenar:before { content: "\e989"; }
+.icon-orientacion:before { content: "\e98a"; }
+.icon-parrilla:before { content: "\e98b"; }
+.icon-patronesdebusqueda:before { content: "\e98c"; }
+.icon-pausar:before { content: "\e98d"; }
+.icon-pausarcontacto:before { content: "\e98e"; }
+.icon-pdf:before { content: "\e98f"; }
+.icon-pdfgrilla:before { content: "\e990"; }
+.icon-pdfhorizontal:before { content: "\e991"; }
+.icon-pdfvertical:before { content: "\e992"; }
+.icon-pegar:before { content: "\e993"; }
+.icon-perfil:before { content: "\e994"; }
+.icon-performance:before { content: "\e995"; }
+.icon-permisos:before { content: "\e996"; }
+.icon-pileta:before { content: "\e997"; }
+.icon-pinup:before { content: "\e998"; }
+.icon-pinupsolido:before { content: "\e999"; }
+.icon-plantas:before { content: "\e99a"; }
+.icon-play:before { content: "\e99b"; }
+.icon-positivo:before { content: "\e99c"; }
+.icon-premium:before { content: "\e99d"; }
+.icon-premiumline:before { content: "\e99e"; }
+.icon-propiedades:before { content: "\e99f"; }
+.icon-propiedadessinmovimiento:before { content: "\e9a0"; }
+.icon-propietario:before { content: "\e9a1"; }
+.icon-quintoandar:before { content: "\e9a2"; }
+.icon-quitardestaque:before { content: "\e9a3"; }
+.icon-reasignar:before { content: "\e9a4"; }
+.icon-redes:before { content: "\e9a5"; }
+.icon-redflag:before { content: "\e9a6"; }
+.icon-reenviado:before { content: "\e9a7"; }
+.icon-reloj:before { content: "\e9a8"; }
+.icon-reportada:before { content: "\e9a9"; }
+.icon-reportar:before { content: "\e9aa"; }
+.icon-reporte-conversion:before { content: "\e9ab"; }
+.icon-reporte-operaciones:before { content: "\e9ac"; }
+.icon-reportes:before { content: "\e9ad"; }
+.icon-reservas:before { content: "\e9ae"; }
+.icon-reset:before { content: "\e9af"; }
+.icon-respuestasrapidas:before { content: "\e9b0"; }
+.icon-right-align:before { content: "\e9b1"; }
+.icon-salir:before { content: "\e9b2"; }
+.icon-seguimiento:before { content: "\e9b3"; }
+.icon-seguridad:before { content: "\e9b4"; }
+.icon-selectall:before { content: "\e9b5"; }
+.icon-semicubierta:before { content: "\e9b6"; }
+.icon-sena:before { content: "\e9b7"; }
+.icon-siguiente:before { content: "\e9b8"; }
+.icon-silenciar:before { content: "\e9b9"; }
+.icon-sincronizando:before { content: "\e9ba"; }
+.icon-sitioweb:before { content: "\e9bb"; }
+.icon-situacion:before { content: "\e9bc"; }
+.icon-solarium:before { content: "\e9bd"; }
+.icon-sort-by:before { content: "\e9be"; }
+.icon-subida:before { content: "\e9bf"; }
+.icon-subrayar:before { content: "\e9c0"; }
+.icon-superficie:before { content: "\e9c1"; }
+.icon-tabla:before { content: "\e9c2"; }
+.icon-task:before { content: "\e9c3"; }
+.icon-telefono:before { content: "\e9c4"; }
+.icon-terreno:before { content: "\e9c5"; }
+.icon-text-background-color:before { content: "\e9c6"; }
+.icon-timeline:before { content: "\e9c7"; }
+.icon-todoslosmensajes:before { content: "\e9c8"; }
+.icon-toilletes:before { content: "\e9c9"; }
+.icon-tokki:before { content: "\e9ca"; }
+.icon-tokkochat:before { content: "\e9cb"; }
+.icon-tokkotip:before { content: "\e9cc"; }
+.icon-topleftarrow:before { content: "\e9cd"; }
+.icon-totalconstruido:before { content: "\e9ce"; }
+.icon-trespunticos:before { content: "\e9cf"; }
+.icon-ubicacion:before { content: "\e9d0"; }
+.icon-Univen:before { content: "\e9d1"; }
+.icon-univenai:before { content: "\e9d2"; }
+.icon-univenchat:before { content: "\e9d3"; }
+.icon-vendio:before { content: "\e9d4"; }
+.icon-ver:before { content: "\e9d5"; }
+.icon-video:before { content: "\e9d6"; }
+.icon-whatsapp:before { content: "\e9d7"; }
+.icon-wifi:before { content: "\e9d8"; }
+.icon-x:before { content: "\e9d9"; }
+.icon-youtube:before { content: "\e9da"; }
+.icon-zonaprop:before { content: "\e9db"; }
+.icon-zonificacion:before { content: "\e9dc"; }
+.icon-zoom-in:before { content: "\e9dd"; }
+.icon-zoom-out:before { content: "\e9de"; }

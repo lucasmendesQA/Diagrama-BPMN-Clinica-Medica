@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BPMN — Gestão de Atendimento e Agendamento de uma Clínica Médica</title>
+<meta name="description" content="Diagrama BPMN 2.0 do processo de atendimento e agendamento de uma clínica médica (Sistema 3).">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/ds/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/ds/tokens/colors.css">
+<link rel="stylesheet" href="_ds/ds/tokens/typography.css">
+<style>body{margin:0;background:#fff} a{color:#275c6d} a:hover{color:#1a4958}</style>
+</helmet>
+<div style="width:8220px;height:1580px;background:#fff;font-family:'Nunito Sans',sans-serif;color:#2e393f;position:relative">
+<svg width="8220" height="1580" style="display:block;font-family:'Nunito Sans',sans-serif">
+  <text x="40" y="58" fill="#1d2327" style="font-size:24px;font-weight:700;letter-spacing:-0.4px">Gestão de Atendimento e Agendamento de uma Clínica Médica</text>
+  <text x="40" y="84" fill="#6a7981" style="font-size:14px;font-weight:600">Diagrama BPMN 2.0 · Sistema 3 · fluxo da esquerda para a direita</text>
+
+  <rect x="40" y="170" width="8160" height="1100" fill="#fff" stroke="#4d5a61" style="stroke-width:1.5"></rect>
+  <rect x="40" y="170" width="30" height="1100" fill="#2e393f"></rect>
+  <text transform="rotate(-90 55 720)" x="55" y="720" fill="#fbfcfc" style="font-size:15px;font-weight:700;text-anchor:middle;dominant-baseline:central;letter-spacing:1.5px">CLÍNICA MÉDICA</text>
+  <sc-for list="{{ lanes }}" as="l" hint-placeholder-count="5">
+    <rect x="70" y="{{ l.y }}" width="8130" height="220" fill="{{ l.fill }}" stroke="#4d5a61" style="stroke-width:1"></rect>
+    <rect x="70" y="{{ l.y }}" width="30" height="220" fill="{{ l.hfill }}" stroke="#4d5a61" style="stroke-width:1"></rect>
+  </sc-for>
+
+  <sc-for list="{{ pools }}" as="p" hint-placeholder-count="3">
+    <rect x="{{ p.x }}" y="{{ p.y }}" width="{{ p.w }}" height="{{ p.h }}" fill="#daebf0" stroke="#4d5a61" style="stroke-width:1.5"></rect>
+    <rect x="{{ p.x }}" y="{{ p.y }}" width="30" height="{{ p.h }}" fill="#b9dce7" stroke="#4d5a61" style="stroke-width:1.5"></rect>
+  </sc-for>
+  <rect x="{{ npool.x }}" y="{{ npool.y }}" width="{{ npool.w }}" height="60" fill="#daebf0" stroke="#4d5a61" style="stroke-width:1.5"></rect>
+  <text x="{{ npool.cx }}" y="{{ npool.cy }}" fill="#1a4958" style="font-size:14px;font-weight:700;text-anchor:middle;dominant-baseline:central;letter-spacing:0.5px">Serviço de Notificação</text>
+
+  <sc-for list="{{ seq }}" as="e" hint-placeholder-count="3">
+    <path d="{{ e.d }}" fill="none" stroke="#2e393f" style="stroke-width:1.4;stroke-linejoin:round"></path>
+    <polygon points="{{ e.arrow }}" fill="#2e393f"></polygon>
+  </sc-for>
+  <sc-for list="{{ msgs }}" as="e" hint-placeholder-count="2">
+    <path d="{{ e.d }}" fill="none" stroke="#4d5a61" style="stroke-width:1.4;stroke-dasharray:6 4"></path>
+    <circle cx="{{ e.sx }}" cy="{{ e.sy }}" r="3.5" fill="#fff" stroke="#4d5a61" style="stroke-width:1.4"></circle>
+    <polygon points="{{ e.arrow }}" fill="#fff" stroke="#4d5a61" style="stroke-width:1.4;stroke-linejoin:round"></polygon>
+  </sc-for>
+
+  <sc-for list="{{ tasks }}" as="n" hint-placeholder-count="4">
+    <rect x="{{ n.x }}" y="{{ n.y }}" width="{{ n.w }}" height="50" rx="8" fill="#fff" stroke="#4d5a61" style="stroke-width:1.4"></rect>
+    <path d="{{ n.icon }}" fill="none" stroke="#4d5a61" style="stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round"></path>
+  </sc-for>
+  <sc-for list="{{ gateways }}" as="n" hint-placeholder-count="3">
+    <polygon points="{{ n.pts }}" fill="#fdf5d4" stroke="#927c19" style="stroke-width:1.4;stroke-linejoin:round"></polygon>
+    <path d="{{ n.xd }}" fill="none" stroke="#615210" style="stroke-width:2;stroke-linecap:round"></path>
+  </sc-for>
+  <sc-for list="{{ starts }}" as="n" hint-placeholder-count="1">
+    <circle cx="{{ n.cx }}" cy="{{ n.cy }}" r="17" fill="#e1faf4" stroke="#189c7b" style="stroke-width:1.5"></circle>
+  </sc-for>
+  <sc-for list="{{ inters }}" as="n" hint-placeholder-count="2">
+    <circle cx="{{ n.cx }}" cy="{{ n.cy }}" r="17" fill="#e8f4fb" stroke="#007ddd" style="stroke-width:1.3"></circle>
+    <circle cx="{{ n.cx }}" cy="{{ n.cy }}" r="13.5" fill="none" stroke="#007ddd" style="stroke-width:1.3"></circle>
+    <path d="{{ n.icon }}" fill="none" stroke="#004f8b" style="stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round"></path>
+  </sc-for>
+  <sc-for list="{{ ends }}" as="n" hint-placeholder-count="2">
+    <circle cx="{{ n.cx }}" cy="{{ n.cy }}" r="17" fill="#facecf" stroke="#df1517" style="stroke-width:4"></circle>
+  </sc-for>
+
+
+  <text x="60" y="1338" fill="#1d2327" style="font-size:13px;font-weight:700;letter-spacing:0.5px">LEGENDA</text>
+  <rect x="48" y="1348" width="860" height="110" rx="8" fill="none" stroke="#d6dee2" style="stroke-width:1"></rect>
+  <circle cx="80" cy="1378" r="12" fill="#e1faf4" stroke="#189c7b" style="stroke-width:1.5"></circle>
+  <text x="100" y="1382" fill="#2e393f" style="font-size:11.5px">Evento de início</text>
+  <circle cx="260" cy="1378" r="12" fill="#e8f4fb" stroke="#007ddd" style="stroke-width:1.3"></circle>
+  <circle cx="260" cy="1378" r="9" fill="none" stroke="#007ddd" style="stroke-width:1.3"></circle>
+  <text x="280" y="1382" fill="#2e393f" style="font-size:11.5px">Evento intermediário</text>
+  <circle cx="460" cy="1378" r="12" fill="#facecf" stroke="#df1517" style="stroke-width:3.5"></circle>
+  <text x="480" y="1382" fill="#2e393f" style="font-size:11.5px">Evento de fim</text>
+  <polygon points="660,1364 674,1378 660,1392 646,1378" fill="#fdf5d4" stroke="#927c19" style="stroke-width:1.4"></polygon>
+  <path d="M655 1373L665 1383M665 1373L655 1383" fill="none" stroke="#615210" style="stroke-width:1.8;stroke-linecap:round"></path>
+  <text x="684" y="1382" fill="#2e393f" style="font-size:11.5px">Gateway exclusivo (XOR)</text>
+  <rect x="62" y="1412" width="52" height="34" rx="6" fill="#fff" stroke="#4d5a61" style="stroke-width:1.4"></rect>
+  <path d="{{ legUser }}" fill="none" stroke="#4d5a61" style="stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round"></path>
+  <text x="124" y="1433" fill="#2e393f" style="font-size:11.5px">Tarefa de usuário</text>
+  <rect x="260" y="1412" width="52" height="34" rx="6" fill="#fff" stroke="#4d5a61" style="stroke-width:1.4"></rect>
+  <path d="{{ legService }}" fill="none" stroke="#4d5a61" style="stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round"></path>
+  <text x="322" y="1433" fill="#2e393f" style="font-size:11.5px">Tarefa de serviço</text>
+  <path d="M460 1429L528 1429" fill="none" stroke="#2e393f" style="stroke-width:1.4"></path>
+  <polygon points="{{ seqArrow }}" fill="#2e393f"></polygon>
+  <text x="546" y="1433" fill="#2e393f" style="font-size:11.5px">Fluxo de sequência</text>
+  <circle cx="646" cy="1429" r="3.5" fill="#fff" stroke="#4d5a61" style="stroke-width:1.4"></circle>
+  <path d="M650 1429L708 1429" fill="none" stroke="#4d5a61" style="stroke-width:1.4;stroke-dasharray:6 4"></path>
+  <polygon points="{{ msgArrow }}" fill="#fff" stroke="#4d5a61" style="stroke-width:1.4"></polygon>
+  <text x="726" y="1433" fill="#2e393f" style="font-size:11.5px">Fluxo de mensagem</text>
+</svg>
+<div style="position:absolute;inset:0;pointer-events:none;line-height:12px">
+  <sc-for list="{{ lanes }}" as="l" hint-placeholder-count="5">
+    <div style="position:absolute;left:85px;top:{{ l.cy }}px;width:220px;transform:translate(-50%,-50%) rotate(-90deg);text-align:center;font-size:13px;font-weight:700;letter-spacing:0.5px;color:#2e393f;white-space:nowrap">{{ l.name }}</div>
+  </sc-for>
+  <sc-for list="{{ pools }}" as="p" hint-placeholder-count="2">
+    <div style="position:absolute;left:{{ p.hx }}px;top:{{ p.cy }}px;width:146px;transform:translate(-50%,-50%) rotate(-90deg);text-align:center;font-size:11.5px;font-weight:700;letter-spacing:0.2px;color:#1a4958;white-space:nowrap">{{ p.name }}</div>
+  </sc-for>
+  <sc-for list="{{ taskLines }}" as="t" hint-placeholder-count="4">
+    <div style="position:absolute;left:{{ t.x }}px;top:{{ t.y }}px;transform:translate(-50%,-100%);font-size:11px;font-weight:600;color:#2e393f;white-space:nowrap;line-height:13px">{{ t.t }}</div>
+  </sc-for>
+  <sc-for list="{{ labMid }}" as="t" hint-placeholder-count="2">
+    <div style="position:absolute;left:{{ t.x }}px;top:{{ t.y }}px;transform:translate(-50%,-100%);font-size:10.5px;font-weight:600;color:#2e393f;white-space:nowrap">{{ t.t }}</div>
+  </sc-for>
+  <sc-for list="{{ labStart }}" as="t" hint-placeholder-count="2">
+    <div style="position:absolute;left:{{ t.x }}px;top:{{ t.y }}px;transform:translate(0,-100%);font-size:10.5px;font-weight:600;color:#2e393f;white-space:nowrap">{{ t.t }}</div>
+  </sc-for>
+  <sc-for list="{{ labEnd }}" as="t" hint-placeholder-count="2">
+    <div style="position:absolute;left:{{ t.x }}px;top:{{ t.y }}px;transform:translate(-100%,-100%);font-size:10.5px;font-weight:600;color:#2e393f;white-space:nowrap">{{ t.t }}</div>
+  </sc-for>
+  <sc-for list="{{ edgeLabelsStart }}" as="t" hint-placeholder-count="2">
+    <div style="position:absolute;left:{{ t.x }}px;top:{{ t.y }}px;transform:translate(0,-100%);font-size:10px;font-weight:700;font-style:italic;color:#4d5a61;white-space:nowrap">{{ t.t }}</div>
+  </sc-for>
+  <sc-for list="{{ edgeLabelsEnd }}" as="t" hint-placeholder-count="1">
+    <div style="position:absolute;left:{{ t.x }}px;top:{{ t.y }}px;transform:translate(-100%,-100%);font-size:10px;font-weight:700;font-style:italic;color:#4d5a61;white-space:nowrap">{{ t.t }}</div>
+  </sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const colW = 150, NW = 130, NH = 50, GH = 21, EH = 17, LH = 220, X0 = 100, MT = 170, MB = MT + 5 * LH;
+    const cxr = c => X0 + c * colW + colW / 2;
+    const sh = c => c >= 27 ? c + 1 : c;
+    const cx = c => cxr(sh(c));
+    const LANES = [['P', 'Paciente', '#e8f4fb', '#bee2ff'], ['S', 'Sistema de Gestão', '#f3f6f8', '#d6dee2'], ['R', 'Recepção', '#f7f2fc', '#e8d8f5'], ['H', 'Profissional de Saúde', '#e1faf4', '#b9e7dc'], ['F', 'Setor Financeiro', '#fef7f2', '#fad1b7']];
+    const LY = { L: 75, O: MB + 205 };
+    LANES.forEach((l, i) => LY[l[0]] = MT + i * LH + LH / 2);
+    const NY0 = MB + 45, OY0 = MB + 150;
+    const Y = (l, d = 0) => LY[l] + d;
+    const nodes = [], NM = {};
+    const N = (id, type, lane, c, dy, label, o = {}) => {
+      const task = /user|service|task/.test(type), w = o.w || NW;
+      const n = { id, type, lane, label, w, cx: (o.raw ? cxr : cx)(c) + (o.xo || 0), cy: LY[lane] + dy, hw: task ? w / 2 : type === 'xor' ? GH : EH, hh: task ? NH / 2 : type === 'xor' ? GH : EH, lab: o.lab };
+      nodes.push(n); NM[id] = n;
+    };
+    const AB = { dx: 8, anchor: 'start' }, AE = { dx: -8, anchor: 'end' };
+    // Paciente
+    N('n1', 'start', 'P', 0, 0, 'Solicitação\nde consulta');
+    N('n2', 'user', 'P', 1, 0, 'Acessar portal ou\ncontatar a recepção');
+    N('n5', 'user', 'P', 4, -64, 'Criar cadastro');
+    N('n6', 'user', 'P', 4, 64, 'Atualizar dados\nde contato');
+    N('n7', 'user', 'P', 5, 0, 'Selecionar especialidade\ne profissional', { w: 134 });
+    N('n9', 'user', 'P', 7, 0, 'Escolher data, horário\ne profissional');
+    N('n10', 'user', 'P', 8, 0, 'Confirmar solicitação\nde agendamento');
+    N('n23', 'user', 'P', 16, 0, 'Realizar pagamento');
+    N('n20', 'user', 'P', 18, 0, 'Providenciar\ndocumentação');
+    N('n20b', 'xor', 'P', 19, 0, 'Documentação\nresolvida?', { lab: AB });
+    N('n20c', 'end', 'P', 20, 0, 'Agendamento\ncancelado');
+    N('n28', 'task', 'P', 23, 0, 'Aguardar dia\nda consulta');
+    N('nb', 'imsg', 'P', 23, 25, 'Solicitação de\ncancelamento ou\nreagendamento', { xo: 50, lab: { dx: -12, dy: 30, anchor: 'end' } });
+    N('n29', 'itimer', 'P', 24, 0, 'Dia da consulta');
+    N('n30', 'inter', 'P', 27, 0, 'Chegada do paciente\nà clínica', { lab: 'above' });
+    N('n39', 'user', 'P', 33, 0, 'Regularizar\npendência');
+    N('n65', 'user', 'P', 47, 0, 'Efetuar pagamento');
+    // Sistema
+    N('n3', 'service', 'S', 2, 0, 'Verificar cadastro\ndo paciente');
+    N('n4', 'xor', 'S', 3, 0, 'Paciente já\ncadastrado?', { lab: AB });
+    N('n8', 'service', 'S', 6, 0, 'Consultar agenda e\nexibir horários');
+    N('n13', 'service', 'S', 8, 0, 'Apresentar outras\ndatas e horários');
+    N('n11', 'service', 'S', 9, 0, 'Revalidar\ndisponibilidade');
+    N('n12', 'xor', 'S', 10, 0, 'Horário ainda\ndisponível?');
+    N('n15', 'xor', 'S', 12, 0, 'Convênio ou\nparticular?');
+    N('n16', 'service', 'S', 13, -64, 'Enviar dados para\nverificação de\nelegibilidade');
+    N('n21', 'xor', 'S', 13, 64, 'Exige pagamento\nantecipado?', { lab: AB });
+    N('n17', 'imsg', 'S', 14, -64, 'Retorno da\nautorização', { lab: { dx: 0, dy: -42, anchor: 'middle' } });
+    N('n18', 'xor', 'S', 15, -64, 'Autorização\naprovada?');
+    N('n24', 'imsg', 'S', 16, 64, 'Confirmação\nde pagamento');
+    N('n19', 'service', 'S', 17, -64, 'Informar pendências\nde documentação');
+    N('n24b', 'xor', 'S', 17, 64, 'Pagamento\nconfirmado?', { lab: AB });
+    N('n24c', 'end', 'S', 18, 64, 'Agendamento\ncancelado');
+    N('n25', 'service', 'S', 20, 0, 'Confirmar agendamento\ne bloquear horário', { w: 134 });
+    N('n26', 'service', 'S', 21, 0, 'Enviar confirmação\nao paciente');
+    N('n27', 'service', 'S', 22, 0, 'Programar lembretes\nautomáticos');
+    N('n40', 'service', 'S', 25, 64, 'Liberar horário\nbloqueado', { raw: true });
+    N('n46', 'xor', 'S', 25, 0, 'Paciente\ncompareceu?', { lab: AB });
+    N('n41', 'xor', 'S', 26, 64, 'Cancelar ou reagendar?', { raw: true });
+    N('n44', 'service', 'S', 27, -64, 'Buscar nova\ndisponibilidade', { raw: true });
+    N('n47', 'service', 'S', 26, 0, 'Registrar ausência\n(fluxo de faltas)');
+    N('n42', 'service', 'S', 27, 64, 'Notificar\ncancelamento', { raw: true });
+    N('n45', 'service', 'S', 27, -64, 'Enviar confirmação\natualizada');
+    N('n48', 'end', 'S', 27, 0, 'Ausência\nregistrada', { lab: 'right' });
+    N('n43', 'end', 'S', 27, 64, 'Agendamento\ncancelado', { lab: 'right' });
+    N('n49', 'service', 'S', 34, 0, 'Atualizar status:\naguardando atendimento', { w: 136 });
+    N('n54', 'xor', 'S', 39, 0, 'Exames ou\nretorno?', { lab: AB });
+    N('n55', 'xor', 'S', 40, -64, 'Clínica própria ou\nlaboratório parceiro?');
+    N('n59', 'service', 'S', 40, 64, 'Registrar solicitação\nde retorno');
+    N('n56', 'service', 'S', 41, -64, 'Encaminhar solicitação\nde exame');
+    N('n58', 'service', 'S', 41, 64, 'Agendar exame\ninterno');
+    N('n57', 'service', 'S', 42, -64, 'Informar paciente\nsobre procedimentos');
+    N('n60', 'service', 'S', 43, 0, 'Verificar situação\nfinanceira');
+    N('n69', 'service', 'S', 51, 0, "Atualizar status para\n'encerrado' e liberar\ndocumentos");
+    N('n70', 'end', 'S', 52, 0, 'Atendimento\nencerrado');
+    // Recepção
+    N('n14', 'user', 'R', 11, 0, 'Validar cadastro e\ndados do atendimento');
+    N('n31', 'user', 'R', 28, 0, 'Localizar agendamento\npor CPF ou nº');
+    N('n32', 'xor', 'R', 29, 0, 'Agendamento\nlocalizado?');
+    N('n33', 'user', 'R', 30, 64, 'Verificar horários\npara encaixe');
+    N('n34', 'xor', 'R', 31, 64, 'Há\ndisponibilidade?', { lab: AB });
+    N('n37', 'user', 'R', 32, 0, 'Confirmar identidade\ne realizar check-in');
+    N('n35', 'user', 'R', 32, 64, 'Orientar\nagendamento futuro');
+    N('n38', 'xor', 'R', 33, 0, 'Há pendências\nadministrativas?', { lab: AE });
+    N('n36', 'end', 'R', 33, 64, 'Agendamento\nfuturo orientado');
+    // Profissional
+    N('n50', 'imsg', 'H', 35, 0, 'Notificação de\npaciente aguardando');
+    N('n51', 'user', 'H', 36, 0, 'Realizar\natendimento clínico');
+    N('n52', 'user', 'H', 37, 0, 'Registrar no\nprontuário eletrônico');
+    N('n53', 'user', 'H', 38, 0, 'Registrar encerramento\ndo atendimento');
+    // Financeiro
+    N('n22', 'user', 'F', 15, 0, 'Disponibilizar opções\nde pagamento');
+    N('n61', 'xor', 'F', 44, 0, 'Convênio ou\nparticular?', { lab: AB });
+    N('n62', 'user', 'F', 45, -64, 'Registrar dados para\nfaturamento (operadora)', { w: 134 });
+    N('n63', 'xor', 'F', 45, 64, 'Pagamento\npendente?');
+    N('n64', 'user', 'F', 46, 64, 'Disponibilizar dados\npara regularização');
+    N('n66', 'user', 'F', 48, 64, 'Registrar\nconfirmação');
+    N('n67', 'xor', 'F', 49, 0, 'Há divergência\nde cobrança?', { lab: AE });
+    N('n68', 'user', 'F', 50, 64, 'Analisar e corrigir\ndivergência');
+    // Externos
+    N('o1', 'task', 'O', 13, 0, 'Analisar elegibilidade\ne autorização', { xo: 60, w: 200 });
+    N('o2', 'task', 'O', 45, 0, 'Receber dados\nde faturamento');
+    N('l1', 'task', 'L', 41, 0, 'Receber solicitação e\nrealizar procedimento', { xo: 75, w: 150 });
+
+    const L = id => [NM[id].cx - NM[id].hw, NM[id].cy], R = id => [NM[id].cx + NM[id].hw, NM[id].cy];
+    const T = id => [NM[id].cx, NM[id].cy - NM[id].hh], B = id => [NM[id].cx, NM[id].cy + NM[id].hh];
+    const edges = [];
+    const E = (f, t, mode = 'HVH', label, k = 0, o = {}) => {
+      const a = NM[f], b = NM[t]; let pts;
+      if (Array.isArray(mode)) pts = mode;
+      else if (mode === 'H') pts = [R(f), L(t)];
+      else if (mode === 'HVH') { const x = a.cx + colW / 2 - (a.hw === NW / 2 ? 0 : 0) + (NW / 2 - a.hw) * 0 + (colW / 2 - NW / 2) * 0; const xv = X0 + Math.round((a.cx - X0) / colW) * colW; pts = [R(f), [xv, a.cy], [xv, b.cy], L(t)]; }
+      else if (mode === 'VH') pts = [b.cy < a.cy ? T(f) : B(f), [a.cx, b.cy], L(t)];
+      else if (mode === 'V') pts = b.cy < a.cy ? [T(f), B(t)] : [B(f), T(t)];
+      edges.push({ pts, label, k, msg: !!o.msg, lx: o.lx || 0, ly: o.ly || 0, at: o.at, end: o.end });
+    };
+    const M = (pts) => edges.push({ pts, msg: true });
+    const S = d => Y('S', d), P = d => Y('P', d), Rr = d => Y('R', d), F = d => Y('F', d);
+
+    E('n1', 'n2', 'H'); E('n2', 'n3'); E('n3', 'n4', 'H');
+    E('n4', 'n5', 'VH', 'Não', 1); E('n4', 'n6', 'HVH', 'Sim');
+    E('n5', 'n7'); E('n6', 'n7'); E('n7', 'n8'); E('n8', 'n9'); E('n9', 'n10', 'H'); E('n10', 'n11'); E('n11', 'n12', 'H');
+    E('n12', 'n13', [B('n12'), [cx(10), S(64)], [cx(8), S(64)], B('n13')], 'Não');
+    E('n13', 'n9', [T('n13'), [cx(8), P(96)], [cx(7), P(96)], B('n9')]);
+    E('n12', 'n14', 'HVH', 'Sim'); E('n14', 'n15');
+    E('n15', 'n16', 'HVH', 'Convênio', 1, { at: [cx(12) + 70, S(-58)], end: true }); E('n15', 'n21', 'HVH', 'Particular', 1, { at: [cx(12) + 70, S(44)], end: true });
+    E('n16', 'n17', 'H'); E('n17', 'n18', 'H');
+    E('n18', 'n19', 'H', 'Não'); E('n18', 'n25', [B('n18'), [cx(15), S(0)], L('n25')], 'Sim');
+    E('n19', 'n20'); E('n20', 'n20b', 'H'); E('n20b', 'n20c', 'H', 'Não');
+    E('n20b', 'n14', [T('n20b'), [cx(19), P(-72)], [cx(11), P(-72)], T('n14')], 'Sim', 1);
+    E('n21', 'n22', 'HVH', 'Sim'); E('n21', 'n25', [T('n21'), [cx(13), S(0)], L('n25')], 'Não', 1);
+    E('n22', 'n23'); E('n23', 'n24', 'V'); E('n24', 'n24b', 'H'); E('n24b', 'n24c', 'H', 'Não');
+    E('n24b', 'n25', [T('n24b'), [cx(17), S(0)], L('n25')], 'Sim', 1);
+    E('n25', 'n26', 'H'); E('n26', 'n27', 'H'); E('n27', 'n28'); E('n28', 'n29', 'H');
+    E('n29', 'n46'); E('n46', 'n30', 'VH', 'Sim', 1); E('n46', 'n47', 'H', 'Não'); E('n47', 'n48', 'H');
+    E('nb', 'n40', [B('nb'), [NM.nb.cx, S(64)], L('n40')]);
+    E('n40', 'n41', 'H'); E('n41', 'n42', 'H', 'Cancelar'); E('n42', 'n43', 'H');
+    E('n41', 'n44', [R('n41'), [cxr(26) + 75, S(64)], [cxr(26) + 75, S(-64)], L('n44')], 'Reagendar', 1, { at: [cxr(26) + 70, S(-34)], end: true });
+    E('n44', 'n45', 'H');
+    E('n45', 'n9', [[cx(27) - 50, S(-89)], [cx(27) - 50, S(-100)], [cx(27) - 75, S(-100)], [cx(27) - 75, P(-98)], [cx(7), P(-98)], T('n9')]);
+    E('n30', 'n31', [R('n30'), [cx(28), P(0)], T('n31')]);
+    E('n31', 'n32', 'H'); E('n32', 'n37', 'H', 'Sim'); E('n32', 'n33', 'VH', 'Não'); E('n33', 'n34', 'H');
+    E('n34', 'n35', 'H', 'Não'); E('n35', 'n36', 'H');
+    E('n34', 'n37', [T('n34'), [cx(31), Rr(0)], L('n37')], 'Sim', 1);
+    E('n37', 'n38', 'H'); E('n38', 'n39', 'V', 'Sim'); E('n39', 'n37', [L('n39'), [cx(32), P(0)], T('n37')]);
+    E('n38', 'n49', 'HVH', 'Não');
+    E('n49', 'n50'); E('n50', 'n51', 'H'); E('n51', 'n52', 'H'); E('n52', 'n53', 'H'); E('n53', 'n54');
+    E('n54', 'n55', 'VH', 'Exames', 0, { lx: -44, ly: 0 }); E('n54', 'n59', 'VH', 'Retorno'); E('n54', 'n60', 'H', 'Nenhum');
+    E('n55', 'n56', 'H', 'Parceiro'); E('n56', 'n57', 'H');
+    E('n55', 'n58', [B('n55'), [cx(40), S(-30)], [cx(40) + 75, S(-30)], [cx(40) + 75, S(64)], L('n58')], 'Própria', 1);
+    E('n57', 'n60'); E('n58', 'n60');
+    E('n59', 'n60', [B('n59'), [cx(40), S(102)], [cx(43) - 20, S(102)], [cx(43) - 20, S(25)]]);
+    E('n60', 'n61');
+    E('n61', 'n62', 'VH', 'Convênio', 1); E('n61', 'n63', 'VH', 'Particular', 1);
+    E('n62', 'n67', [R('n62'), [cx(49), F(-64)], T('n67')]);
+    E('n63', 'n64', 'H', 'Sim'); E('n63', 'n67', [B('n63'), [cx(45), F(96)], [cx(49), F(96)], B('n67')], 'Não', 1);
+    E('n64', 'n65'); E('n65', 'n66'); E('n66', 'n67');
+    E('n67', 'n68', [R('n67'), [cx(49) + 75, F(0)], [cx(49) + 75, F(64)], L('n68')], 'Sim', 1);
+    E('n67', 'n69', 'HVH', 'Não');
+    E('n68', 'n60', [B('n68'), [cx(50), F(102)], [cx(43) + 20, F(102)], [cx(43) + 20, S(25)]]);
+    E('n69', 'n70', 'H');
+    // Mensagens
+    M([[cx(13) - 30, S(-39)], [cx(13) - 30, Y('O', -25)]]);
+    M([[cx(14), Y('O', -25)], [cx(14), S(-47)]]);
+    M([[cx(21), S(25)], [cx(21), NY0]]); M([[cx(22), S(25)], [cx(22), NY0]]);
+    M([[cxr(27), S(89)], [cxr(27), NY0]]); M([[cx(27) - 20, S(-39)], [cx(27) - 20, NY0]]);
+    M([[cx(41) + 30, S(-89)], [cx(41) + 30, Y('L', 25)]]); M([[cx(42) - 30, Y('L', 25)], [cx(42) - 30, S(-89)]]);
+    M([[cx(45) - 35, F(-39)], [cx(45) - 35, Y('O', -25)]]);
+
+    // hops: arcs on horizontals crossing other edges' verticals
+    const segs = [];
+    edges.forEach((e, i) => { for (let k = 0; k < e.pts.length - 1; k++) { const [x1, y1] = e.pts[k], [x2, y2] = e.pts[k + 1]; if (x1 === x2) segs.push({ e: i, x: x1, y0: Math.min(y1, y2), y1: Math.max(y1, y2) }); } });
+    const r = 5;
+    const arrow = (p, q) => { let dx = q[0] - p[0], dy = q[1] - p[1]; const Ln = Math.hypot(dx, dy) || 1; dx /= Ln; dy /= Ln; const bx = q[0] - dx * 9, by = q[1] - dy * 9; return `${q[0]},${q[1]} ${(bx - dy * 4.5).toFixed(1)},${(by + dx * 4.5).toFixed(1)} ${(bx + dy * 4.5).toFixed(1)},${(by - dx * 4.5).toFixed(1)}`; };
+    const edgeLabels = [];
+    edges.forEach((e, i) => {
+      const pts = e.pts.map(p => p.slice());
+      const n = pts.length, q = pts[n - 2], p = pts[n - 1];
+      e.arrow = arrow(q, p);
+      if (e.msg) { const dx = Math.sign(p[0] - q[0]), dy = Math.sign(p[1] - q[1]); pts[n - 1] = [p[0] - dx * 8, p[1] - dy * 8]; const s = pts[0], s2 = pts[1]; pts[0] = [s[0] + Math.sign(s2[0] - s[0]) * 3.5, s[1] + Math.sign(s2[1] - s[1]) * 3.5]; e.sx = s[0]; e.sy = s[1]; }
+      let d = '';
+      pts.forEach((pt, k) => {
+        if (k === 0) { d += `M${pt[0]} ${pt[1]}`; return; }
+        const pr = pts[k - 1];
+        if (pr[1] === pt[1] && pr[0] !== pt[0]) {
+          const y = pt[1], dir = Math.sign(pt[0] - pr[0]), lo = Math.min(pr[0], pt[0]), hi = Math.max(pr[0], pt[0]);
+          segs.filter(s => s.e !== i && s.y0 < y - 1 && s.y1 > y + 1 && lo + 1 < s.x && s.x < hi - 1).map(s => s.x).sort((a, b) => dir * (a - b))
+            .forEach(x => { d += `L${x - dir * r} ${y}A${r} ${r} 0 0 ${dir > 0 ? 1 : 0} ${x + dir * r} ${y}`; });
+        }
+        d += `L${pt[0]} ${pt[1]}`;
+      });
+      e.d = d;
+      if (e.label && e.at) { edgeLabels.push({ x: e.at[0], y: e.at[1], t: e.label, end: !!e.end }); }
+      else if (e.label) {
+        const a = e.pts[e.k], b = e.pts[e.k + 1];
+        let x, y;
+        if (a[1] === b[1]) { x = a[0] + (b[0] > a[0] ? 5 : -40); y = a[1] - 5; }
+        else if (b[1] < a[1]) { x = a[0] + 5; y = a[1] - 8; }
+        else { x = a[0] + 5; y = a[1] + 13; }
+        edgeLabels.push({ x: x + e.lx, y: y + e.ly, t: e.label });
+      }
+    });
+    const seq = edges.filter(e => !e.msg), msgs = edges.filter(e => e.msg);
+
+    const ico = {
+      user: (x, y) => `M${x + 1.5} ${y + 4}a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0M${x - 0.5} ${y + 13}q0 -5.5 4.5 -5.5q4.5 0 4.5 5.5z`,
+      service: (x, y) => { const c = [x + 5, y + 6]; let d = `M${c[0] - 3} ${c[1]}a3 3 0 1 0 6 0a3 3 0 1 0 -6 0`; for (let k = 0; k < 8; k++) { const a = k * Math.PI / 4; d += `M${(c[0] + 4.2 * Math.cos(a)).toFixed(1)} ${(c[1] + 4.2 * Math.sin(a)).toFixed(1)}L${(c[0] + 6.4 * Math.cos(a)).toFixed(1)} ${(c[1] + 6.4 * Math.sin(a)).toFixed(1)}`; } return d; },
+      msg: (x, y) => `M${x - 7} ${y - 5}h14v10h-14zM${x - 7} ${y - 5}l7 5.5l7 -5.5`,
+      timer: (x, y) => `M${x - 7} ${y}a7 7 0 1 0 14 0a7 7 0 1 0 -14 0M${x} ${y}v-5M${x} ${y}h3.5` + [0, 1, 2, 3].map(k => { const a = k * Math.PI / 2; return `M${(x + 5.2 * Math.cos(a)).toFixed(1)} ${(y + 5.2 * Math.sin(a)).toFixed(1)}L${(x + 7 * Math.cos(a)).toFixed(1)} ${(y + 7 * Math.sin(a)).toFixed(1)}`; }).join('')
+    };
+    const tasks = [], gateways = [], starts = [], inters = [], ends = [], taskLines = [], labMid = [], labStart = [], labEnd = [];
+    nodes.forEach(n => {
+      const lines = n.label.split('\n');
+      if (/user|service|task/.test(n.type)) {
+        tasks.push({ x: n.cx - n.hw, y: n.cy - n.hh, w: n.w, icon: n.type === 'user' ? ico.user(n.cx - n.hw + 4, n.cy - n.hh + 3) : n.type === 'service' ? ico.service(n.cx - n.hw + 4, n.cy - n.hh + 3) : 'M0 0' });
+        const hasIcon = n.type !== 'task', three = lines.length === 3, off = hasIcon ? (three ? 5 : 4) : 0, pitch = three ? 12 : 13;
+        lines.forEach((t, i) => taskLines.push({ x: n.cx + (hasIcon ? 4 : 0), y: n.cy + off + (i - (lines.length - 1) / 2) * pitch + 4, t }));
+        return;
+      }
+      if (n.type === 'xor') { gateways.push({ pts: `${n.cx},${n.cy - GH} ${n.cx + GH},${n.cy} ${n.cx},${n.cy + GH} ${n.cx - GH},${n.cy}`, xd: `M${n.cx - 6.5} ${n.cy - 6.5}L${n.cx + 6.5} ${n.cy + 6.5}M${n.cx + 6.5} ${n.cy - 6.5}L${n.cx - 6.5} ${n.cy + 6.5}` }); }
+      else if (n.type === 'start') starts.push({ cx: n.cx, cy: n.cy });
+      else if (n.type === 'end') ends.push({ cx: n.cx, cy: n.cy });
+      else inters.push({ cx: n.cx, cy: n.cy, icon: n.type === 'itimer' ? ico.timer(n.cx, n.cy) : n.type === 'inter' ? 'M0 0' : ico.msg(n.cx, n.cy) });
+      // labels
+      const above = n.type === 'xor' || n.lab === 'above';
+      let dx = 0, anchor = 'middle', ys;
+      if (n.lab === 'right') { dx = n.hh + 10; anchor = 'start'; ys = lines.map((_, i) => n.cy - (lines.length - 1) * 6 + i * 12 + 4); }
+      else if (n.lab && typeof n.lab === 'object') { dx = n.lab.dx; anchor = n.lab.anchor; const base = n.lab.dy != null ? n.cy + n.lab.dy : above ? n.cy - n.hh - 6 - (lines.length - 1) * 12 : n.cy + n.hh + 12; ys = lines.map((_, i) => base + i * 12); }
+      else if (above) ys = lines.map((_, i) => n.cy - n.hh - 3 - (lines.length - 1 - i) * 11);
+      else ys = lines.map((_, i) => n.cy + n.hh + 14 + i * 12);
+      const tgt = anchor === 'start' ? labStart : anchor === 'end' ? labEnd : labMid;
+      lines.forEach((t, i) => tgt.push({ x: n.cx + dx, y: ys[i], t }));
+    });
+
+    const lanes = LANES.map((l, i) => ({ name: l[1], fill: l[2], hfill: l[3], y: MT + i * LH, cy: MT + i * LH + LH / 2 }));
+    const pools = [
+      { name: 'Laboratório Parceiro', x: cx(40) - 50, y: 0, w: cx(43) + 50 - (cx(40) - 50), h: 150, cy: 75 },
+      { name: 'Operadora de Convênio', x: cx(12) - 40, y: OY0 - 20, w: cx(46) + 40 - (cx(12) - 40), h: 150, cy: OY0 + 55 }
+    ].map(p => ({ ...p, hx: p.x + 15 }));
+    const npool = { x: cx(20) - 40, y: NY0, w: cx(28) + 40 - (cx(20) - 40), cx: (cx(20) + cx(28)) / 2, cy: NY0 + 30 };
+
+    [taskLines, labMid, labStart, labEnd, edgeLabels].forEach(a => a.forEach(t => t.y += 3));
+    const edgeLabelsEnd = edgeLabels.filter(t => t.end), edgeLabelsStart = edgeLabels.filter(t => !t.end);
+    return { lanes, pools, npool, seq, msgs, tasks, gateways, starts, inters, ends, taskLines, labMid, labStart, labEnd, edgeLabelsStart, edgeLabelsEnd,
+      legUser: ico.user(68, 1418), legService: ico.service(266, 1418), seqArrow: arrow([460, 1429], [532, 1429]), msgArrow: arrow([650, 1429], [712, 1429]) };
+  }
+}
+</script>
+</body>
+</html>

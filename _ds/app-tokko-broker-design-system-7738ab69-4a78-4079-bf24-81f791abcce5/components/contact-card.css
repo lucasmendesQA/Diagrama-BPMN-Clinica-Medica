@@ -1,0 +1,106 @@
+/* =============================================================================
+   ContactCard — Tokko Design System
+   Card de contacto/agente + acciones. 2 variantes (contact/agent) × 6 estados
+   (default, selection, selected, remove, skeleton, readonly).
+   Solo variables de /tokens.
+   ============================================================================= */
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 380px;
+  gap: var(--space-3); /* 12px */
+  padding: var(--space-3); /* 12px */
+  background: var(--color-surface-neutral-ground);
+  border: 1px solid var(--color-border-neutral-on-ground);
+  border-radius: var(--border-radius-sm-md); /* 12px */
+  font-family: var(--font-family-base);
+}
+
+/* readonly: mismo layout, sin stroke */
+.contact-card--readonly {
+  border-color: transparent;
+}
+
+/* selected: fila resaltada */
+.contact-card--selected {
+  background: var(--color-surface-neutral-low);
+}
+
+.contact-card__avatar {
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Badge de WhatsApp sobre el avatar (variant="contact") — usa el slot
+   swappable icon1 de UserProfilePicture (showOrigenBadge), reemplazando el
+   OrigenIndicator por defecto. */
+.contact-card__wa-badge {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius-pill);
+  background: var(--color-green-500);
+  border: 2px solid var(--color-surface-neutral-ground);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact-card__wa-badge i {
+  font-size: 8px;
+  color: var(--color-surface-neutral-ground);
+}
+
+.contact-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1); /* 4px */
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-card__name {
+  font-size: var(--font-size-body-md);      /* 16px */
+  line-height: var(--line-height-body-md);  /* 20px */
+  font-weight: var(--font-weight-semi);
+  color: var(--color-text-neutral-on-ground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact-card__role {
+  font-size: var(--font-size-body-sm);      /* 14px */
+  line-height: var(--line-height-body-sm);  /* 20px */
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-neutral-on-ground-lighter);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact-card__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2); /* 8px */
+  flex-shrink: 0;
+}
+
+/* ── SKELETON ─────────────────────────────────────────────── */
+.contact-card__skeleton-bar {
+  display: block;
+  height: 12px;
+  border-radius: var(--border-radius-xs);
+  background: var(--color-neutral-200);
+}
+.contact-card__skeleton-bar--wide { width: 70%; }
+.contact-card__skeleton-bar--narrow { width: 45%; }
+
+.contact-card__skeleton-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-xs-sm);
+  background: var(--color-neutral-200);
+  flex-shrink: 0;
+}
